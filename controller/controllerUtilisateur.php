@@ -23,7 +23,13 @@ switch ($action) {
 		$pagetitle = "Login";
 		require ("{$ROOT}{$DS}view{$DS}login.php");//"redirige" vers la vue
         break; 
+	
+	case "logout":
+		$pagetitle = "Logout";
+		require ("{$ROOT}{$DS}view{$DS}logout.php");//"redirige" vers la vue
+		break; 
 
+	
     case "readAll":
         $pagetitle = "Liste des utilisateurs";
         $view = "readAll";

@@ -75,7 +75,7 @@
 
                         <?php } else { ?>
                                     <li class="nav-item">
-                                <a class="nav-link color-green-hover" href="view/logout.php">Logout</a>
+                                <a class="nav-link color-green-hover" href="index.php?controller=utilisateur&action=logout">Logout</a>
                                     </li> <?php } ?>
 
 
