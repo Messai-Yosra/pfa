@@ -16,9 +16,13 @@
 </style>
 <center>
     <div class="backParag">
-        <h3 style="margin-top : 60px ; color : green ;">
+        <!-- <h3 style="margin-top : 60px ; color : green ;">
             Your informations has been updated successfully.
-        </h3>
+        </h3> -->
+
+        <div class="alert alert-success" role="alert" style="margin-top : 60px ;">
+		  You have updated your profile up successfully
+		</div>
 
         <p class="parag">
         <?php

@@ -139,6 +139,11 @@ if (isset($_POST["login"])){
 
 	<form style="width:50%; margin-bottom:90px" action="#" method="post">
 	 
+	<?php if (isset($signedup)) { ?>
+		<div class="alert alert-success" role="alert">
+		  You have signed up successfully
+		</div>
+	<?php } ?>
 
 	  <div class="container">
 	    <label for="uname"><b>Username</b></label>
@@ -152,7 +157,7 @@ if (isset($_POST["login"])){
 	      <input type="checkbox" checked="checked" name="remember"> Remember me
 	    </label>
 	   
-	     <a class="nav-link color-green-hover" href="signup.php">Sign up </a>
+	     <a class="nav-link color-green-hover" href="index.php?controller=utilisateur&action=signup">Sign up </a>
 	    
 
 	  </div>

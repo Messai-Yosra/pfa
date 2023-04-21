@@ -89,10 +89,18 @@
 	<form style="width:50%; margin-bottom:90px" action="index.php?controller=utilisateur&action=updated&id=<?=$up['id']?>" method="post"> 
 	 
 	<?php if (isset($error)) { ?>
-		<div style="color : red; margin-top : 10px ; font-size : 18px">
-			<?php echo $error ;  ?>
+		<div class="alert alert-danger" role="alert" style="margin-top : 10px ; font-size : 18px">
+			<?php echo $error ;  ?> 
 		</div>
 	<?php } ?>
+
+	<?php if (isset($done)) { ?>
+		<div class="alert alert-success" role="alert" style="margin-top : 10px ; font-size : 18px">
+			<?php echo $done ;  ?>
+		</div>
+	<?php } ?>
+
+	
 	  <div class="container">
 	    <input type="hidden" value="<?php echo $up["id"];  ?>" name="id" required>
 

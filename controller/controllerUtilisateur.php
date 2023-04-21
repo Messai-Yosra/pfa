@@ -21,7 +21,15 @@ switch ($action) {
 
 	case "login":
 		$pagetitle = "Login";
+		if (isset($_REQUEST["signedup"]) ==1 ) {
+			$signedup = 1;
+		}
 		require ("{$ROOT}{$DS}view{$DS}login.php");//"redirige" vers la vue
+        break; 
+	
+	case "signup":
+		$pagetitle = "Signup";
+		require ("{$ROOT}{$DS}view{$DS}signup.php");//"redirige" vers la vue
         break; 
 	
 	case "logout":
@@ -76,10 +84,15 @@ switch ($action) {
 			$o = ModelUtilisateur::select($id);
 			//il faut vérifier que l'utilisateur existe dans la bdd 
 			if($o!=null){
-				$u = ModelUtilisateur::update($tab, $id);		
-				$pagetitle = "Utilisateur modifié";
-				$view = "updated";
-				require ("{$ROOT}{$DS}view{$DS}view.php");
+				// $u = ModelUtilisateur::update($tab, $id);		
+				// $pagetitle = "Utilisateur modifié";
+				// $view = "updated";
+				// require ("{$ROOT}{$DS}view{$DS}view.php");
+				$up = ModelUtilisateur::select($id);
+				$done = "Profile updated successfully";
+				$pagetitle = "Modifier l'utilisateur";
+				$view = "update";
+				require ("{$ROOT}{$DS}view{$DS}view.php");	
 			}
 		}	
 		break;	
