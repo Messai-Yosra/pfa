@@ -55,7 +55,7 @@ switch ($action) {
 		if(
 			isset($_REQUEST["username"]) && isset($_REQUEST["name"]) && isset($_REQUEST["adresse"]) && isset($_REQUEST["password"]) && isset($_REQUEST["createdAt"])
 		){
-			
+			 
 			$username = $_REQUEST["username"];
 			$name = $_REQUEST["name"];
 			$adresse = $_REQUEST["adresse"];
@@ -104,18 +104,23 @@ switch ($action) {
 		}
 		break;
 		
-	case "updated": // Action du formulaire de modification
-		if(isset($_REQUEST['ncin']) && isset($_REQUEST['n']) && isset($_REQUEST['p'])){
-			$oldncin = $_REQUEST['ncin'];
+	case "updated": // Action du formulaire de modification 
+		if(
+			isset($_REQUEST["id"]) && isset($_REQUEST["username"]) && isset($_REQUEST["name"]) && isset($_REQUEST["adresse"]) && isset($_REQUEST["password"]) && isset($_REQUEST["createdAt"])
+		){
+			$id = $_REQUEST["id"];
 			$tab = array(
-   			 "ncin" => $_REQUEST["ncin"],
-   			 "nom" => $_REQUEST["n"],
-   			 "prenom" => $_REQUEST["p"]
+   			 "username" => $_REQUEST["username"],
+			 "name" => $_REQUEST["name"],
+			 "adresse" => $_REQUEST["adresse"],
+			 "password" => $_REQUEST["password"],
+			 "createdAt" => $_REQUEST["createdAt"]
+			 
    			 );
-			$o = ModelUtilisateur::select($oldncin);
+			$o = ModelUtilisateur::select($id);
 			//il faut vérifier que l'utilisateur existe dans la bdd 
 			if($o!=null){
-				$u = ModelUtilisateur::update($tab, $oldncin);		
+				$u = ModelUtilisateur::update($tab, $id);		
 				$pagetitle = "Utilisateur modifié";
 				$view = "updated";
 				require ("{$ROOT}{$DS}view{$DS}view.php");
