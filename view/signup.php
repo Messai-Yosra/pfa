@@ -10,16 +10,15 @@ session_start();
 
 
 		$req="INSERT INTO user (username, password, adresse)
- 		VALUES ('$username', '$password', '$adresse')";
+ 		VALUES ('$username', '$password', '$adress')";
 
 		$result = mysqli_query($con,$req) ;
 	 	
-
-	 	if ($result->num_rows>0) {
-		 	while ($row = $result->fetch_assoc()) {
-		 		$_SESSION['user'] = $row  ;  
-		 		echo "<script>window.top.location='index.php'</script>" ;
-		 	}
+		echo $result ; 
+	 	if ($result) {
+		 	 
+		 		echo "<script>window.top.location='index.php?controller=utilisateur&action=login&signedup=1'</script>" ;
+		 	 
 	 	} else {
 	 		echo "Invalid user" ; 
 	 	}

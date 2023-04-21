@@ -1,3 +1,8 @@
+ <?php
+ if (!isset($_SESSION)){
+    session_start() ;
+ } 
+ ?>
  <div id="wrapper">
         <div class="collapse top-search" id="collapseExample">
             <div class="card card-block">
@@ -31,7 +36,11 @@
                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                         <div class="topsearch text-right">
                          <?php if (isset($_SESSION['user'])) { ?> 
-                            <div> Bonjour <?php echo $_SESSION['user']['username']; ?>  </div>
+                            <div> Bonjour  
+                                <a href="<?php echo 'index.php?controller=utilisateur&action=update&id='.$_SESSION['user']['id'] ;  ?>">
+                                    <?php echo $_SESSION['user']['username']; ?>  
+                                </a>
+                            </div>
                             <?php } ?>
 <!--                             <a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-search"></i> Search</a>
  -->                        </div><!-- end search -->

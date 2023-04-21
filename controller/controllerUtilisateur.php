@@ -21,13 +21,94 @@ switch ($action) {
 
 	case "login":
 		$pagetitle = "Login";
+		if (isset($_REQUEST["signedup"]) ==1 ) {
+			$signedup = 1;
+		}
 		require ("{$ROOT}{$DS}view{$DS}login.php");//"redirige" vers la vue
+        break; 
+	
+	case "signup":
+		$pagetitle = "Signup";
+		require ("{$ROOT}{$DS}view{$DS}signup.php");//"redirige" vers la vue
         break; 
 	
 	case "logout":
 		$pagetitle = "Logout";
 		require ("{$ROOT}{$DS}view{$DS}logout.php");//"redirige" vers la vue
 		break; 
+
+	case "update":
+		if(isset($_REQUEST['id'])){
+
+			$id = $_REQUEST['id'];
+			$up = ModelUtilisateur::select($id);
+			//il faut vérifier que l'utilisateur existe dans la bdd  
+			if($up!=null){ 
+				$pagetitle = "Modifier l'utilisateur";
+				$view = "update";
+				require ("{$ROOT}{$DS}view{$DS}view.php");			
+			}
+			
+		}
+		break;
+
+	
+	case "updated": // Action du formulaire de modification 
+		if(
+			isset($_REQUEST["id"]) 
+		){ 
+			$id = $_POST["id"];
+
+			// ===== passwords not matching ========
+			if ($_POST["password"] != $_POST["confirmpassword"]) {
+				$up = ModelUtilisateur::select($id);
+				//il faut vérifier que l'utilisateur existe dans la bdd  
+				if($up!=null){ 
+					$error = "Passwords do not match";
+					$pagetitle = "Modifier l'utilisateur";
+					$view = "update";
+					require ("{$ROOT}{$DS}view{$DS}view.php");			
+				}
+			}
+
+
+			// ======== all is good =============
+			$tab = array(
+			 "id" => $_POST["id"],
+   			 "username" => $_POST["username"],
+			 "name" => $_POST["name"],
+			 "adresse" => $_POST["adresse"],
+			 "password" => $_POST["password"] 
+			 
+   			 );
+			$o = ModelUtilisateur::select($id);
+			//il faut vérifier que l'utilisateur existe dans la bdd 
+			if($o!=null){
+				// $u = ModelUtilisateur::update($tab, $id);		
+				// $pagetitle = "Utilisateur modifié";
+				// $view = "updated";
+				// require ("{$ROOT}{$DS}view{$DS}view.php");
+				$up = ModelUtilisateur::select($id);
+				$done = "Profile updated successfully";
+				$pagetitle = "Modifier l'utilisateur";
+				$view = "update";
+				require ("{$ROOT}{$DS}view{$DS}view.php");	
+			}
+		}	
+		break;	
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	
     case "readAll":
@@ -106,19 +187,19 @@ switch ($action) {
 		}
 		break;
 	
-	case "update":
-		if(isset($_REQUEST['id'])){
-			$id = $_REQUEST['id'];
-			$up = ModelUtilisateur::select($id);
-			//il faut vérifier que l'utilisateur existe dans la bdd 
-			if($up!=null){
-				$pagetitle = "Modifier l'utilisateur";
-				$view = "update";
-				require ("{$ROOT}{$DS}view{$DS}view.php");			
-			}
+	// case "update":
+	// 	if(isset($_REQUEST['id'])){
+	// 		$id = $_REQUEST['id'];
+	// 		$up = ModelUtilisateur::select($id);
+	// 		//il faut vérifier que l'utilisateur existe dans la bdd 
+	// 		if($up!=null){
+	// 			$pagetitle = "Modifier l'utilisateur";
+	// 			$view = "update";
+	// 			require ("{$ROOT}{$DS}view{$DS}view.php");			
+	// 		}
 			
-		}
-		break;
+	// 	}
+	// 	break;
 		
 	case "updated": // Action du formulaire de modification 
 		if(
