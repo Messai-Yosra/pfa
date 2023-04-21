@@ -53,7 +53,14 @@ switch ($action) {
 
 			// ===== passwords not matching ========
 			if ($_POST["password"] != $_POST["confirmpassword"]) {
-				
+				$up = ModelUtilisateur::select($id);
+				//il faut vérifier que l'utilisateur existe dans la bdd  
+				if($up!=null){ 
+					$error = "Passwords do not match";
+					$pagetitle = "Modifier l'utilisateur";
+					$view = "update";
+					require ("{$ROOT}{$DS}view{$DS}view.php");			
+				}
 			}
 
 
