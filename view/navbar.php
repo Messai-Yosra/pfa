@@ -31,7 +31,11 @@
                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                         <div class="topsearch text-right">
                          <?php if (isset($_SESSION['user'])) { ?> 
-                            <div> Bonjour <?php echo $_SESSION['user']['username']; ?>  </div>
+                            <div> Bonjour  
+                                <a href="<?php echo 'index.php?controller=utilisateur&action=edit&username'.$_SESSION['user']['username'] ;  ?>">
+                                    <?php echo $_SESSION['user']['username']; ?>  
+                                </a>
+                            </div>
                             <?php } ?>
 <!--                             <a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-search"></i> Search</a>
  -->                        </div><!-- end search -->
