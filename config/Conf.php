@@ -3,7 +3,7 @@ class Conf {
   static private $debug = True;
   static private $databases = array(
     'hostname' => 'localhost',
-    'database' => 'voiture',
+    'database' => 'pfa',
     'login' => 'root',
     'password' => ''
   );
