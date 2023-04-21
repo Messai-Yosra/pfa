@@ -1,3 +1,8 @@
+ <?php
+ if (!isset($_SESSION)){
+    session_start() ;
+ } 
+ ?>
  <div id="wrapper">
         <div class="collapse top-search" id="collapseExample">
             <div class="card card-block">

@@ -1,9 +1,9 @@
 <?php
-include_once "../connect.php";
+// include_once "../connect.php";
 //session_start(); 
 ?>
 
-
+	
 
 <!DOCTYPE html>
 <html>
@@ -79,15 +79,14 @@ include_once "../connect.php";
 
 </head>
 <body>
-	
-	<?php //include "navbar.php"; ?>
+	 
 	
 	<center> 
-		<h2 style="margin-top: 75px">Update User</h2> 
+		<h2 style="margin-top: 26px">Update User</h2> 
 
 	
 
-	<form style="width:50%; margin-bottom:20px" action="#" method="post"> 
+	<form style="width:50%; margin-bottom:90px" action="#" method="post"> 
 
 	  <div class="container">
 	    <label for="uname"><b>Username</b></label>
