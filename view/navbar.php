@@ -61,7 +61,7 @@
                     <div class="collapse navbar-collapse justify-content-md-center" id="Forest Timemenu">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link color-green-hover" href="index.php">Home</a>
+                                <a class="nav-link color-green-hover" href="index.php?controller=utilisateur">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link color-green-hover" href="#">events</a>
@@ -70,7 +70,7 @@
                        <?php 
                         if (!isset($_SESSION['user'])) { ?>
                             <li class="nav-item">
-                                <a class="nav-link color-green-hover" href="login.php">login</a>
+                                <a class="nav-link color-green-hover" href="index.php?controller=utilisateur&action=login">login</a>
                             </li>
 
                         <?php } else { ?>
