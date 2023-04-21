@@ -17,7 +17,7 @@ class ModelUtilisateur extends Model{
 
 
   protected static $table = 'utilisateur';
-  protected static $primary = 'ncin';
+  protected static $primary = 'id';
    
   public function __construct( 
     $username=NULL,

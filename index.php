@@ -7,29 +7,30 @@ $DS = DIRECTORY_SEPARATOR;
 
 $controleur_default = "utilisateur" ;
  
-	header('/view/home.php');
- 
+header('/pfaFinal/view/home.php');
 
-if(!isset($_REQUEST['controller']))
-		//$controller récupère $controller_default;
-		$controller=$controleur_default;
-	else 
-		// recupère l'action passée dans l'URL
-		$controller = $_REQUEST['controller'];
+
+// if(!isset($_REQUEST['controller']))
+// 		//$controller récupère $controller_default;
+// 		$controller=$controleur_default;
+// 	else 
+// 		// recupère l'action passée dans l'URL
+// 		$controller = $_REQUEST['controller'];
 
 				
-switch ($controller) {
-			case "voiture" :
-			// {$var} pour concaténer les chaînes de caractères 
-				require ("{$ROOT}{$DS}controller{$DS}controllerVoiture.php");
-				break;
+// switch ($controller) {
+// 			case "voiture" :
+// 			// {$var} pour concaténer les chaînes de caractères 
+// 				require ("{$ROOT}{$DS}controller{$DS}controllerVoiture.php");
+// 				break;
 				
-			case "utilisateur" :
-				require ("{$ROOT}{$DS}controller{$DS}controllerUtilisateur.php");
-				break;	
+// 			case "utilisateur" :
+// 				require ("{$ROOT}{$DS}controller{$DS}controllerUtilisateur.php");
+// 				break;	
 				
-			case "default" :
-				require ("{$ROOT}{$DS}controller{$DS}controllerUtilisateur.php");
-				break;
-}
+// 			case "default" :
+// 				require ("{$ROOT}{$DS}controller{$DS}controllerUtilisateur.php");
+// 				break;
+// }
+
 ?>
