@@ -41,9 +41,10 @@ class Model{
 	
 	
     public static function select($cle_primaire) {
-	    $sql = "SELECT * from ".static::$table." WHERE ".static::$primary."=:cle_primaire";
+		//echo "SELECT * from ".static::$table." WHERE ".static::$primary."=:id" ; 
+	    $sql = "SELECT * from ".static::$table." WHERE ".static::$primary."=:id";
 	    $req_prep = self::$pdo->prepare($sql);
-	    $req_prep->bindParam(":cle_primaire", $cle_primaire);
+	    $req_prep->bindParam(":id", $cle_primaire);
 	    $req_prep->execute();
 	    $req_prep->setFetchMode(PDO::FETCH_CLASS, 'Model'.ucfirst(static::$table));
 	    if ($req_prep->rowCount()==0){

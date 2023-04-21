@@ -30,14 +30,15 @@ switch ($action) {
 		break; 
 
 	case "update":
-		if(isset($_REQUEST['username'])){
-			$id = $_REQUEST['username'];
+		if(isset($_REQUEST['id'])){
+
+			$id = $_REQUEST['id'];
 			$up = ModelUtilisateur::select($id);
-			//il faut vérifier que l'utilisateur existe dans la bdd 
-			if($up!=null){
+			//il faut vérifier que l'utilisateur existe dans la bdd  
+			if($up!=null){ 
 				$pagetitle = "Modifier l'utilisateur";
-				
-				require ("{$ROOT}{$DS}view{$DS}/utilisateur/editUser.php");			
+				$view = "update";
+				require ("{$ROOT}{$DS}view{$DS}view.php");			
 			}
 			
 		}
@@ -120,19 +121,19 @@ switch ($action) {
 		}
 		break;
 	
-	case "update":
-		if(isset($_REQUEST['id'])){
-			$id = $_REQUEST['id'];
-			$up = ModelUtilisateur::select($id);
-			//il faut vérifier que l'utilisateur existe dans la bdd 
-			if($up!=null){
-				$pagetitle = "Modifier l'utilisateur";
-				$view = "update";
-				require ("{$ROOT}{$DS}view{$DS}view.php");			
-			}
+	// case "update":
+	// 	if(isset($_REQUEST['id'])){
+	// 		$id = $_REQUEST['id'];
+	// 		$up = ModelUtilisateur::select($id);
+	// 		//il faut vérifier que l'utilisateur existe dans la bdd 
+	// 		if($up!=null){
+	// 			$pagetitle = "Modifier l'utilisateur";
+	// 			$view = "update";
+	// 			require ("{$ROOT}{$DS}view{$DS}view.php");			
+	// 		}
 			
-		}
-		break;
+	// 	}
+	// 	break;
 		
 	case "updated": // Action du formulaire de modification 
 		if(

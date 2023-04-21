@@ -32,7 +32,7 @@
                         <div class="topsearch text-right">
                          <?php if (isset($_SESSION['user'])) { ?> 
                             <div> Bonjour  
-                                <a href="<?php echo 'index.php?controller=utilisateur&action=edit&username='.$_SESSION['user']['username'] ;  ?>">
+                                <a href="<?php echo 'index.php?controller=utilisateur&action=update&id='.$_SESSION['user']['id'] ;  ?>">
                                     <?php echo $_SESSION['user']['username']; ?>  
                                 </a>
                             </div>

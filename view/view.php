@@ -9,7 +9,7 @@
 <body>
 <?php
  
-//require_once($ROOT.$DS."view".$DS."header.php");
+require_once($ROOT.$DS."view".$DS."navbar.php");
 
 // Déterminer la vue adéquate
 
@@ -26,7 +26,7 @@ $filepath = $ROOT.$DS."view".$DS.$controller.$DS;
 $filename = "view".ucfirst($view).ucfirst($controller).'.php'; 
 
 
-//require_once($filepath.$filename);
+require_once($filepath.$filename);
 require_once("index.php");
 
 require_once($ROOT.$DS."view".$DS."footer.php");
