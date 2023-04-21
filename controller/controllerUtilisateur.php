@@ -14,6 +14,11 @@ if(isset($_REQUEST['action']))
 	else $action="readAll";	
 	
 switch ($action) {
+	case "home":
+        $pagetitle = "Liste des utilisateurs";
+		require ("{$ROOT}{$DS}view{$DS}view.php");//"redirige" vers la vue
+        break;
+		
     case "readAll":
         $pagetitle = "Liste des utilisateurs";
         $view = "readAll";
