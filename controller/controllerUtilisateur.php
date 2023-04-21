@@ -48,10 +48,10 @@ switch ($action) {
 	case "updated": // Action du formulaire de modification 
 		if(
 			isset($_REQUEST["id"]) 
-		){
-			echo "yes" ; 
+		){ 
 			$id = $_POST["id"];
 			$tab = array(
+			 "id" => $_POST["id"],
    			 "username" => $_POST["username"],
 			 "name" => $_POST["name"],
 			 "adresse" => $_POST["adresse"],
@@ -63,7 +63,7 @@ switch ($action) {
 			if($o!=null){
 				$u = ModelUtilisateur::update($tab, $id);		
 				$pagetitle = "Utilisateur modifié";
-				$view = "update";
+				$view = "updated";
 				require ("{$ROOT}{$DS}view{$DS}view.php");
 			}
 		}	
