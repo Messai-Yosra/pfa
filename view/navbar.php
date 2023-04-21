@@ -1,5 +1,3 @@
-
-
  <div id="wrapper">
         <div class="collapse top-search" id="collapseExample">
             <div class="card card-block">
@@ -47,7 +45,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="logo">
-                            <a href="index.php"><img src="images/version/garden-logo.png" alt=""></a>
+                            <a href="/index.php"><img src="images/version/garden-logo.png" alt=""></a>
                         </div><!-- end logo -->
                     </div>
                 </div><!-- end row -->
@@ -63,7 +61,7 @@
                     <div class="collapse navbar-collapse justify-content-md-center" id="Forest Timemenu">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link color-green-hover" href="index.php">Home</a>
+                                <a class="nav-link color-green-hover" href="index.php?controller=utilisateur">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link color-green-hover" href="#">events</a>
@@ -72,12 +70,12 @@
                        <?php 
                         if (!isset($_SESSION['user'])) { ?>
                             <li class="nav-item">
-                                <a class="nav-link color-green-hover" href="login.php">login</a>
+                                <a class="nav-link color-green-hover" href="index.php?controller=utilisateur&action=login">login</a>
                             </li>
 
                         <?php } else { ?>
                                     <li class="nav-item">
-                                <a class="nav-link color-green-hover" href="logout.php">Logout</a>
+                                <a class="nav-link color-green-hover" href="index.php?controller=utilisateur&action=logout">Logout</a>
                                     </li> <?php } ?>
 
 

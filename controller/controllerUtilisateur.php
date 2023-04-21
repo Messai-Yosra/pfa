@@ -16,9 +16,20 @@ if(isset($_REQUEST['action']))
 switch ($action) {
 	case "home":
         $pagetitle = "Liste des utilisateurs";
-		require ("{$ROOT}{$DS}view{$DS}index.php");//"redirige" vers la vue
+		require ("{$ROOT}{$DS}view{$DS}home.php");//"redirige" vers la vue
         break; 
 
+	case "login":
+		$pagetitle = "Login";
+		require ("{$ROOT}{$DS}view{$DS}login.php");//"redirige" vers la vue
+        break; 
+	
+	case "logout":
+		$pagetitle = "Logout";
+		require ("{$ROOT}{$DS}view{$DS}logout.php");//"redirige" vers la vue
+		break; 
+
+	
     case "readAll":
         $pagetitle = "Liste des utilisateurs";
         $view = "readAll";

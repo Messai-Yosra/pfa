@@ -15,7 +15,7 @@ session_start();
 		$result = mysqli_query($con,$req) ;
 	 	
 
-	 	<!-- if ($result->num_rows>0) {
+	 	if ($result->num_rows>0) {
 		 	while ($row = $result->fetch_assoc()) {
 		 		$_SESSION['user'] = $row  ;  
 		 		echo "<script>window.top.location='index.php'</script>" ;
@@ -23,12 +23,10 @@ session_start();
 	 	} else {
 	 		echo "Invalid user" ; 
 	 	}
- -->
+ 
 
 
 
-
-	}
 	
 }
 ?>
