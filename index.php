@@ -7,6 +7,10 @@ $DS = DIRECTORY_SEPARATOR;
 
 $controleur_default = "utilisateur" ;
 
+if ($_SERVER['REQUEST_URI'] == "/") {
+	header('/view/home.php');
+} 
+
 if(!isset($_REQUEST['controller']))
 		//$controller récupère $controller_default;
 		$controller=$controleur_default;

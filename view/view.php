@@ -7,6 +7,7 @@
 </head>
 <body>
 <?php
+ 
 require_once($ROOT.$DS."view".$DS."header.php");
 
 // Déterminer la vue adéquate
