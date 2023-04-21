@@ -1,16 +1,17 @@
 
 <style>
-    .parag{
-        margin : 30px; 
-        margin-bottom : 200px ;
+    .parag{ 
+        
         font-size : 20px ;
     }
     .backParag {
+        margin-top : 30px; 
         background-color : #EFEFEF ;
         width : 50% ;
-        padding-top : 50px ; 
-        padding-bottom : 10px ; 
+        padding-top : 20px ; 
+        padding-bottom : 40px ; 
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        margin-bottom : 180px ;
     }
 </style>
 <center>
@@ -21,7 +22,7 @@
 
         <p class="parag">
         <?php
-            $id = $u["username"]; 
+            $id = $u["id"]; 
             echo " Back to <a 
             href='index.php?controller=utilisateur&action=update&id=$id'> profile. </a>" ;
         ?>

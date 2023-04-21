@@ -50,6 +50,14 @@ switch ($action) {
 			isset($_REQUEST["id"]) 
 		){ 
 			$id = $_POST["id"];
+
+			// ===== passwords not matching ========
+			if ($_POST["password"] != $_POST["confirmpassword"]) {
+				
+			}
+
+
+			// ======== all is good =============
 			$tab = array(
 			 "id" => $_POST["id"],
    			 "username" => $_POST["username"],
