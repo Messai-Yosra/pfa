@@ -3,7 +3,7 @@
 //session_start(); 
 ?>
 
-	
+
 
 <!DOCTYPE html>
 <html>
@@ -86,24 +86,26 @@
 
 	
 
-	<form style="width:50%; margin-bottom:90px" action="#" method="post"> 
+	<form style="width:50%; margin-bottom:90px" action="index.php?controller=utilisateur&action=updated&id=<?=$up['id']?>" method="post"> 
 
 	  <div class="container">
+	    <input type="hidden" value="<?php echo $up["id"];  ?>" name="id" required>
+
 	    <label for="uname"><b>Username</b></label>
 	    <input type="text" value="<?php echo $up["username"];  ?>" name="username" required>
 
 		<label for="uname"><b>Name</b></label>
-	    <input type="text" value="<?php echo $up["name"];  ?>" name="username" required>
+	    <input type="text" value="<?php echo $up["name"];  ?>" name="name" required>
 		
 		<label for="uname"><b>Email Address</b></label>
-	    <input type="text" value="<?php echo $up["adresse"]; ?>" name="username" required>
+	    <input type="text" value="<?php echo $up["adresse"]; ?>" name="adresse" required>
 		
 
 	    <label for="psw"><b>Password</b></label>
 	    <input type="password" placeholder="Enter Password" name="password" required> 
 
 		<label for="psw"><b>Confirm Password</b></label>
-	    <input type="password" placeholder="Enter Password" name="password" required> 
+	    <input type="password" placeholder="Enter Password" name="confirmpassword" required> 
 	        
 	    <button type="submit" name="login">Update</button> 
 	    
