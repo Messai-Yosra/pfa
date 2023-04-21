@@ -1,5 +1,3 @@
-
-
  <div id="wrapper">
         <div class="collapse top-search" id="collapseExample">
             <div class="card card-block">
@@ -47,7 +45,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="logo">
-                            <a href="index.php"><img src="images/version/garden-logo.png" alt=""></a>
+                            <a href="/index.php"><img src="images/version/garden-logo.png" alt=""></a>
                         </div><!-- end logo -->
                     </div>
                 </div><!-- end row -->
@@ -77,7 +75,7 @@
 
                         <?php } else { ?>
                                     <li class="nav-item">
-                                <a class="nav-link color-green-hover" href="logout.php">Logout</a>
+                                <a class="nav-link color-green-hover" href="view/logout.php">Logout</a>
                                     </li> <?php } ?>
 
 

@@ -6,12 +6,12 @@ session_start();
 <html lang="en">
 
         <title>Home</title>
-        <?php require "imports.php"; ?>
 
 </head>
 <body>
 
-   <?php include "navbar.php"; ?>
+   <?php include "navbar.php"; ?> 
+         
 
         <section class="section first-section">
             <div class="container-fluid">

@@ -1,5 +1,6 @@
 <?php
-include './view/imports.php';
+ 
+ include 'imports.php' ;
 // __DIR__ est une constante "magique" de PHP qui contient le chemin du dossier courant
 $ROOT = __DIR__;
 
