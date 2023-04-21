@@ -29,6 +29,20 @@ switch ($action) {
 		require ("{$ROOT}{$DS}view{$DS}logout.php");//"redirige" vers la vue
 		break; 
 
+	case "update":
+		if(isset($_REQUEST['username'])){
+			$id = $_REQUEST['username'];
+			$up = ModelUtilisateur::select($id);
+			//il faut vérifier que l'utilisateur existe dans la bdd 
+			if($up!=null){
+				$pagetitle = "Modifier l'utilisateur";
+				
+				require ("{$ROOT}{$DS}view{$DS}/utilisateur/editUser.php");			
+			}
+			
+		}
+		break;
+
 	
     case "readAll":
         $pagetitle = "Liste des utilisateurs";
