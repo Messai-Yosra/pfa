@@ -6,7 +6,7 @@ session_start();
 <html lang="en">
 
         <title>Home</title>
-        <?php include "imports.php"; ?>
+        <?php require "imports.php"; ?>
 
 </head>
 <body>
