@@ -84,7 +84,7 @@ switch ($action) {
 			$o = ModelUtilisateur::select($id);
 			//il faut vérifier que l'utilisateur existe dans la bdd 
 			if($o!=null){
-				// $u = ModelUtilisateur::update($tab, $id);		
+				$u = ModelUtilisateur::update($tab, $id);		
 				// $pagetitle = "Utilisateur modifié";
 				// $view = "updated";
 				// require ("{$ROOT}{$DS}view{$DS}view.php");
