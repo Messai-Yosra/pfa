@@ -65,19 +65,19 @@ class Model{
 	}
 	
 	public function insert($tab){
-    $sql = "INSERT INTO ".static::$table." VALUES(";
-    foreach ($tab as $cle => $valeur){
-		$sql .=" :".$cle.",";
+		$sql = "INSERT INTO ".static::$table." VALUES(";
+		foreach ($tab as $cle => $valeur){
+			$sql .=" :".$cle.",";
+		}
+		$sql=rtrim($sql,",");
+		$sql.=");";
+		$req_prep = self::$pdo->prepare($sql);
+		$values = array();
+		foreach ($tab as $cle => $valeur)
+				$values[":".$cle] = $valeur;
+		// execute prend l'argument $values puisqu'on a pas utilisé bindParam
+		$req_prep->execute($values);
 	}
-	$sql=rtrim($sql,",");
-	$sql.=");";
-    $req_prep = self::$pdo->prepare($sql);
-    $values = array();
-    foreach ($tab as $cle => $valeur)
-      		$values[":".$cle] = $valeur;
-	// execute prend l'argument $values puisqu'on a pas utilisé bindParam
-    $req_prep->execute($values);
-  }
 
 	public static function update($tab, $cle_primaire) {
 		$sql = "UPDATE ".static::$table." SET";
@@ -97,7 +97,7 @@ class Model{
 		  $req_prep->execute($values);
 		  $obj = self::select($tab[static::$primary]);
 		  return $obj;
-  }
+  	}
 	
 }//class
 Model::Init();

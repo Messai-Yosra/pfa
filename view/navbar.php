@@ -35,13 +35,22 @@
 
                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                         <div class="topsearch text-right">
+
+
+                    
                          <?php if (isset($_SESSION['user'])) { ?> 
                             <div> Bonjour  
                                 <a href="<?php echo 'index.php?controller=utilisateur&action=update&id='.$_SESSION['user']['id'] ;  ?>">
                                     <?php echo $_SESSION['user']['username']; ?>  
                                 </a>
                             </div>
-                            <?php } ?>
+                        <?php } ?>
+
+
+
+
+
+
 <!--                             <a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-search"></i> Search</a>
  -->                        </div><!-- end search -->
                     </div><!-- end col -->
@@ -89,7 +98,7 @@
 
 
                             <li class="nav-item">
-                                <a class="nav-link color-green-hover" href="#">Contact</a>
+                                <a class="nav-link color-green-hover" href="index.php?controller=utilisateur&action=contact">Contact</a>
                             </li>
                         </ul>
                     </div>
