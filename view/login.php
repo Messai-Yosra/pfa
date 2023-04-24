@@ -13,8 +13,12 @@ if (isset($_POST["login"])){
 		$result = mysqli_query($con,$req) ;
 	 	if ($result->num_rows>0) {
 		 	while ($row = $result->fetch_assoc()) {
+
 		 		$_SESSION['user'] = $row  ;  
-		 		echo "<script>window.top.location='index.php'</script>" ;
+		 		
+				// $_SESSION['user']['password'] = "adad" ; 
+
+				echo "<script>window.top.location='index.php'</script>" ;
 		 	}
 	 	} else {
 	 		echo "Invalid user" ; 

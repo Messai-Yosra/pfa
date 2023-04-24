@@ -22,12 +22,25 @@ $filepath = "{$ROOT}{$DS}view{$DS}{$controller}{$DS}";  */
 // détermine le chemin de la vue en fonction du controller qu'on utilise
 $filepath = $ROOT.$DS."view".$DS.$controller.$DS;
 
+// localhost/forest-time/view/utilisateur/
+
 // détermine le nom du fichier
 $filename = "view".ucfirst($view).ucfirst($controller).'.php'; 
 
+// viewUpdateUtilisateur.php
 
 require_once($filepath.$filename);
+
+// localhost/forest-time/view/utilisateur/viewUpdateUtilisateur.php
+
+
 require_once("index.php");
+
+
+
+
+
+
 
 require_once($ROOT.$DS."view".$DS."footer.php");
 ?>

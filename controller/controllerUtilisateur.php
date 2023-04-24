@@ -7,6 +7,10 @@ $controller = "utilisateur";
 // chargement du modèle
 require_once ("{$ROOT}{$DS}model{$DS}ModelUtilisateur.php"); 
 
+
+
+
+
 if(isset($_REQUEST['action']))	
 /* recupère l'action passée dans l'URL*/
 	$action = $_REQUEST['action'];
@@ -14,9 +18,19 @@ if(isset($_REQUEST['action']))
 	else $action="home";	
 	
 switch ($action) {
+
+	case "contact":
+        $pagetitle = "Contact";
+		require ("{$ROOT}{$DS}view{$DS}contact.php");//"redirige" vers la vue
+
+		// localhost/pfaFinal/view/home.php
+        break; 
+
 	case "home":
-        $pagetitle = "Liste des utilisateurs";
+        $pagetitle = "Home";
 		require ("{$ROOT}{$DS}view{$DS}home.php");//"redirige" vers la vue
+
+		// localhost/pfaFinal/view/home.php
         break; 
 
 	case "login":
@@ -84,7 +98,7 @@ switch ($action) {
 			$o = ModelUtilisateur::select($id);
 			//il faut vérifier que l'utilisateur existe dans la bdd 
 			if($o!=null){
-				// $u = ModelUtilisateur::update($tab, $id);		
+				$u = ModelUtilisateur::update($tab, $id);		
 				// $pagetitle = "Utilisateur modifié";
 				// $view = "updated";
 				// require ("{$ROOT}{$DS}view{$DS}view.php");
