@@ -42,11 +42,30 @@ class Model{
 	
     public static function select($cle_primaire) {
 		//echo "SELECT * from ".static::$table." WHERE ".static::$primary."=:id" ; 
-	    $sql = "SELECT * from ".static::$table." WHERE ".static::$primary."=:id";
+	    $sql = "SELECT * from ".static::$table." WHERE ".static::$primary."= :id";
+
+		//SELECT * FROM user WHERE id = :id ; 
+		//SELECT * FROM user WHERE username = "$username" and password = "$password" ; 
+
+		//(username = 1 OR 1=1) and (password = 1 OR 1=1)
+
+
+		// SQL INJECTION
+
+
+
 	    $req_prep = self::$pdo->prepare($sql);
 	    $req_prep->bindParam(":id", $cle_primaire);
 	    $req_prep->execute();
-	    $req_prep->setFetchMode(PDO::FETCH_CLASS, 'Model'.ucfirst(static::$table));
+	    
+		if ('Model'.ucfirst(static::$table) != "ModelUser") {
+			$req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelUtilisateur'); 
+
+		} else {
+			$req_prep->setFetchMode(PDO::FETCH_CLASS, 'Model'.ucfirst(static::$table)); 
+		}
+
+		 
 	    if ($req_prep->rowCount()==0){
 			return null;
 			die();

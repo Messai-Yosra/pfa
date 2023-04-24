@@ -13,6 +13,7 @@ class ModelUtilisateur extends Model{
   private $name;
   private $adresse;
   private $password;
+  private $role ; 
   private $createdAt;
 
 
@@ -24,14 +25,16 @@ class ModelUtilisateur extends Model{
     $name=NULL,
     $adresse=NULL,
     $password=NULL,
+    $role = NULL,
     $createdAt=NULL
   ) {
-    if ($username != NULL && $name != NULL && $adresse != NULL && $password != NULL && $createdAt != NULL) {
+    if ($username != NULL && $name != NULL && $adresse != NULL && $password != NULL && $role!= NULL && $createdAt != NULL) {
       $this->id = $id;
       $this->username = $username;
       $this->name = $name;
       $this->adresse = $adresse;
       $this->password = $password;
+      $this->role = $role;
       $this->createdAt = $createdAt;
     }
   }
@@ -53,6 +56,9 @@ class ModelUtilisateur extends Model{
   public function getPassword() {
       return $this->password;  
   }
+     public function getRole() {
+          return $this->role;  
+     }
   public function getCreatedAt() {
       return $this->createdAt;  
   }
@@ -74,6 +80,9 @@ class ModelUtilisateur extends Model{
   public function setPassword($password2) {
        $this->password = $password2;
   }
+     public function setRole($role2) {
+          $this->role = $role2;
+     }
   public function setCreatedAt($createdAt2) {
        $this->createdAt = $createdAt2;
   }
