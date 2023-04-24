@@ -100,7 +100,22 @@
                             <li class="nav-item">
                                 <a class="nav-link color-green-hover" href="index.php?controller=utilisateur&action=contact">Contact</a>
                             </li>
+
+                        <?php 
+                        if (isset($_SESSION['user'])) { 
+                            if ($_SESSION['user']['role'] == 'ADMIN') { ?>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link color-green-hover" href="index.php?controller=utilisateur&action=contact">Categories</a>
+                            </li>
+
+                        <?php 
+                            }
+                        } ?>
+
+
                         </ul>
+
                     </div>
                 </nav>
             </div><!-- end container -->
