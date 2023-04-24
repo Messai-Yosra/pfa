@@ -115,7 +115,7 @@
 		
 
 	    <label for="psw"><b>Password</b></label>
-	    <input type="password" placeholder="Enter Password" name="password" required value=<?php echo $up['password'] ?> > 
+	    <input type="password" placeholder="Enter Password" name="password" required  > 
 
 		<label for="psw"><b>Confirm Password</b></label>
 	    <input type="password" placeholder="Enter Password" name="confirmpassword" required> 
