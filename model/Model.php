@@ -58,12 +58,9 @@ class Model{
 	    $req_prep->bindParam(":id", $cle_primaire);
 	    $req_prep->execute();
 	    
-		if ('Model'.ucfirst(static::$table) != "ModelUser") {
-			$req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelUtilisateur'); 
-
-		} else {
-			$req_prep->setFetchMode(PDO::FETCH_CLASS, 'Model'.ucfirst(static::$table)); 
-		}
+		 
+		$req_prep->setFetchMode(PDO::FETCH_CLASS, 'Model'.ucfirst(static::$table)); 
+		 
 
 		 
 	    if ($req_prep->rowCount()==0){
