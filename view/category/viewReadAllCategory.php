@@ -36,7 +36,7 @@ les variables pré-remplies par le contrôleur */
 </style>
 
 <center class="table-responsive">
-    <a href="" class="buttonTable" style="left : 60% !important; margin-top : 40px ;
+    <a href="<?php echo 'index.php?controller=category&action=create'; ?>" class="buttonTable" style="left : 60% !important; margin-top : 40px ;
     margin-bottom : 30px; margin-left : 50%;
     background-color: #6488FF; ">
         Add Category

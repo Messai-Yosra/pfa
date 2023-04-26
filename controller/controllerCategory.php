@@ -52,7 +52,7 @@ switch ($action) {
 	    break;
 	
 	case "create":
-		$pagetitle = "Enregistrer un utilisateur";
+		$pagetitle = "Add Category";
 		$view = "create";
 		require ("{$ROOT}{$DS}view{$DS}view.php");
 		break;
