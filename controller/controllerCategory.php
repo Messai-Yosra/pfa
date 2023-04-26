@@ -45,7 +45,6 @@ switch ($action) {
 			$del = ModelUtilisateur::select($id);
 			if($del!=null){
 			$del->delete($ncin);
-			/*redirection vers le contrôleur et l’action par défaut*/
 			header('Location: index.php?controller=utilisateur&action=readAll');
 			}
 		}

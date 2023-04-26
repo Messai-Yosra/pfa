@@ -31,9 +31,10 @@ class Model{
 		classe concernée, écrire les attributs correspondants aux champs de la table de
 		la BDD puis appeler le constructeur. Ceci permet de récupérer directement un
 		objet de la classe concernée */
+		 
 		
 		//ucfirst($string ) Retourne la chaîne string après avoir remplacé le premier caractère par sa majuscule
-	    $rep->setFetchMode(PDO::FETCH_CLASS, 'Model'.ucfirst(static::$table));
+	    $rep->setFetchMode(PDO::FETCH_CLASS, 'Model'.ucfirst(static::$table).'.php');
 
 		return $rep->fetchAll();
 	}
