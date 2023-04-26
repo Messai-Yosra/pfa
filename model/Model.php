@@ -31,9 +31,10 @@ class Model{
 		classe concernée, écrire les attributs correspondants aux champs de la table de
 		la BDD puis appeler le constructeur. Ceci permet de récupérer directement un
 		objet de la classe concernée */
+		 
 		
 		//ucfirst($string ) Retourne la chaîne string après avoir remplacé le premier caractère par sa majuscule
-	    $rep->setFetchMode(PDO::FETCH_CLASS, 'Model'.ucfirst(static::$table));
+	    $rep->setFetchMode(PDO::FETCH_CLASS, 'Model'.ucfirst(static::$table).'.php');
 
 		return $rep->fetchAll();
 	}
@@ -58,12 +59,9 @@ class Model{
 	    $req_prep->bindParam(":id", $cle_primaire);
 	    $req_prep->execute();
 	    
-		if ('Model'.ucfirst(static::$table) != "ModelUser") {
-			$req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelUtilisateur'); 
-
-		} else {
-			$req_prep->setFetchMode(PDO::FETCH_CLASS, 'Model'.ucfirst(static::$table)); 
-		}
+		 
+		$req_prep->setFetchMode(PDO::FETCH_CLASS, 'Model'.ucfirst(static::$table).'php'); 
+		 
 
 		 
 	    if ($req_prep->rowCount()==0){
@@ -78,6 +76,7 @@ class Model{
 
 	public static function delete($cle_primaire) {
 		$sql = "DELETE FROM ".static::$table." WHERE ".static::$primary."=:cle_primaire";
+		echo $sql ; 
 		$req_prep = self::$pdo->prepare($sql);
 		$req_prep->bindParam(":cle_primaire", $cle_primaire);
 		$req_prep->execute();

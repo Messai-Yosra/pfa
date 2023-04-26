@@ -1,3 +1,4 @@
+<center>
 <form method="POST" action="index.php?controller=utilisateur&action=created">
   <fieldset>
      <legend>Ajout d'un utilisateur </legend> 
@@ -18,3 +19,5 @@
 	 </p>
    </fieldset> 
 </form>
+
+     </center>

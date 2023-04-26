@@ -106,7 +106,7 @@
                             if ($_SESSION['user']['role'] == 'ADMIN') { ?>
                             
                             <li class="nav-item">
-                                <a class="nav-link color-green-hover" href="index.php?controller=utilisateur&action=contact">Categories</a>
+                                <a class="nav-link color-green-hover" href="index.php?controller=category&action=readAll">Categories</a>
                             </li>
 
                         <?php 
