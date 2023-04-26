@@ -24,23 +24,12 @@ if(!isset($_REQUEST['controller']))
 		//$controller = "VOITURE" ; 
 
 switch ($controller) {
-			case "voiture" :
-			// {$var} pour concaténer les chaînes de caractères 
-				require ("{$ROOT}{$DS}controller{$DS}controllerVoiture.php");
+			case "category" : 
+				require ("{$ROOT}{$DS}controller{$DS}controllerCategory.php");
 				break;
 				
 			case "utilisateur" :
-				require ("{$ROOT}{$DS}controller{$DS}controllerUtilisateur.php");
-
-				// $ROOT = "localhost/forest-time" ; 
-				// $DS = "/" ;
-				// "controller" ; 
-				// $DS = "/" ;
-				// "controllerUtilisateur.php" ;
-
-				// localhost/forest-time/controller/controllerUtilisateur.php
-
-
+				require ("{$ROOT}{$DS}controller{$DS}controllerUtilisateur.php");  
 				break;	
 				
 			case "default" :
