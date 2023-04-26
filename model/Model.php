@@ -60,7 +60,7 @@ class Model{
 	    $req_prep->execute();
 	    
 		 
-		$req_prep->setFetchMode(PDO::FETCH_CLASS, 'Model'.ucfirst(static::$table)); 
+		$req_prep->setFetchMode(PDO::FETCH_CLASS, 'Model'.ucfirst(static::$table).'php'); 
 		 
 
 		 
@@ -76,6 +76,7 @@ class Model{
 
 	public static function delete($cle_primaire) {
 		$sql = "DELETE FROM ".static::$table." WHERE ".static::$primary."=:cle_primaire";
+		echo $sql ; 
 		$req_prep = self::$pdo->prepare($sql);
 		$req_prep->bindParam(":cle_primaire", $cle_primaire);
 		$req_prep->execute();

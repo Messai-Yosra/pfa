@@ -41,11 +41,12 @@ switch ($action) {
 		
 	case "delete":
 		if(isset($_REQUEST['id'])){
-			$ncin = $_REQUEST['id'];
-			$del = ModelUtilisateur::select($id);
+			$id = $_REQUEST['id'];
+			$del = ModelCategory::select($id);
+			
 			if($del!=null){
-			$del->delete($ncin);
-			header('Location: index.php?controller=utilisateur&action=readAll');
+				ModelCategory::delete($id);
+				header('Location: index.php?controller=category&action=readAll');
 			}
 		}
 	    break;
