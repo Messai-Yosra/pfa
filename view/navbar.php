@@ -63,7 +63,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="logo">
-                            <a href="/index.php"><img src="images/version/garden-logo.png" alt=""></a>
+                            <a href="/pfaFinal"><img src="images/version/garden-logo.png" alt=""></a>
                         </div><!-- end logo -->
                     </div>
                 </div><!-- end row -->
@@ -112,6 +112,10 @@
                         <?php 
                             }
                         } ?>
+
+                            <li class="nav-item">
+                                <a class="nav-link color-green-hover" href="index.php?controller=produit&action=readAll">Products</a>
+                            </li>
 
 
                         </ul>

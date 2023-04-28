@@ -3,8 +3,9 @@
 à jour les données à travers le modèle, puis appelle la vue
 adéquate. */
 
-$controller = "category";
+$controller = "produit";
 // chargement du modèle
+require_once ("{$ROOT}{$DS}model{$DS}ModelProduit.php"); 
 require_once ("{$ROOT}{$DS}model{$DS}ModelCategory.php"); 
 
 
@@ -21,9 +22,9 @@ switch ($action) {
 
 	
     case "readAll":
-        $pagetitle = "Categories List";
+        $pagetitle = "Products List";
         $view = "readAll";
-       	$tab_u = ModelCategory::getAll();//appel au modèle pour gerer la BD
+       	$tab_u = ModelProduit::getAll();//appel au modèle pour gerer la BD
         require ("{$ROOT}{$DS}view{$DS}view.php");//"redirige" vers la vue
         break;
 
@@ -42,11 +43,11 @@ switch ($action) {
 	case "delete":
 		if(isset($_REQUEST['id'])){
 			$id = $_REQUEST['id'];
-			$del = ModelCategory::select($id);
+			$del = ModelProduit::select($id);
 			
 			if($del!=null){
-				ModelCategory::delete($id);
-				header('Location: index.php?controller=category&action=readAll');
+				ModelProduit::delete($id);
+				header('Location: index.php?controller=produit&action=readAll');
 			}
 		}
 	    break;
@@ -54,29 +55,43 @@ switch ($action) {
 	case "create":
 		$pagetitle = "Add Category";
 		$view = "create";
+       	$categories = ModelCategory::getAll();//appel au modèle pour gerer la BD
+         
 		require ("{$ROOT}{$DS}view{$DS}view.php");
 		break;
 		
-	case "created": // Action du formulaire de la création 
+	case "created": // Action du formulaire de la création  
 		if(
-			isset($_REQUEST["name_category"]) 
+			isset($_REQUEST["name"]) && isset($_REQUEST["description"]) && isset($_REQUEST["image"]) && isset($_REQUEST["price"]) && isset($_REQUEST["name_category"]) 
 		){ 
 			 
 			$name_category = $_REQUEST["name_category"];  
+            $name = $_REQUEST["name"];
+            $description = $_REQUEST["description"];
+            $image = $_REQUEST["image"];
+            $price = $_REQUEST["price"];
 
  
 			 //Si l'utilisateur n'existe pas donc on l'ajoute
 									//il faut créer une object ModelUtilisateur pour accéder à insert car elle n'est pas static
-				$u = new ModelCategory(
-					$name_category
+				$u = new ModelProduit( 
+                    $name,
+                    $description,
+                    $image,
+                    $price,
+                    $name_category
 				);	
 				$tab = array(
 				"id" => null,
+                "name" => $name,
+                "description" => $description,
+                "image" => $image,
+                "price" => $price,
 				"name_category" => $name_category,				
 				);		
 				echo $u->insert($tab);
-				$pagetitle = "Category created";
-				$done = "Category created.";
+				$pagetitle = "Product created";
+				$done = "Product created.";
 				$view = "create"; 
 				require ("{$ROOT}{$DS}view{$DS}view.php");
 			
@@ -86,11 +101,13 @@ switch ($action) {
 	case "update":
 		if(isset($_REQUEST['id'])){
 			$id = $_REQUEST['id'];
-			$up = ModelCategory::select($id);
+			$up = ModelProduit::select($id);
 			//il faut vérifier que l'utilisateur existe dans la bdd 
 			if($up!=null){
 				$pagetitle = "Edit Category";
 				$view = "update";
+               	$categories = ModelCategory::getAll();//appel au modèle pour gerer la BD
+
 				require ("{$ROOT}{$DS}view{$DS}view.php");			
 			}
 			
@@ -99,9 +116,17 @@ switch ($action) {
 		
 	case "updated": // Action du formulaire de modification 
 		if(
-			isset($_REQUEST["id"]) && isset($_REQUEST["name_category"])
+			isset($_REQUEST["id"]) && isset($_REQUEST["name"]) && isset($_REQUEST["description"]) && isset($_REQUEST["image"]) && isset($_REQUEST["price"]) && isset($_REQUEST["name_category"]) 
 		){
 			$id = $_REQUEST["id"];
+            $name = $_REQUEST["name"];
+            $description = $_REQUEST["description"];
+            $image = $_REQUEST["image"];
+            $price = $_REQUEST["price"];
+            $name_category = $_REQUEST["name_category"];
+            
+
+
 			$tab = array(
 				"name_category" => $_REQUEST["name_category"],
    			 );
