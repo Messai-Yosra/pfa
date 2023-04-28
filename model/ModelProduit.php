@@ -13,7 +13,7 @@ class ModelProduit extends Model{
   private $description;
   private $image;
   private $prix;
-  private $id_category;
+  private $name_category;
 
 
   protected static $table = 'produit';
@@ -25,15 +25,15 @@ class ModelProduit extends Model{
     $description=NULL,
     $image=NULL,
     $prix=NULL,
-    $id_category=NULL
+    $name_category=NULL
   ) {
-    if ($name != NULL && $description != NULL && $image != NULL && $prix != NULL && $id_category!= NULL) {
-      $this->id = $id;
+    if ($name != NULL && $description != NULL && $image != NULL && $prix != NULL && $name_category!= NULL) {
+     
       $this->name = $name;
       $this->description = $description;
       $this->image = $image;
       $this->prix = $prix;
-      $this->id_category = $id_category;
+      $this->name_category = $name_category;
     }
   } 
   
@@ -55,8 +55,8 @@ class ModelProduit extends Model{
     public function getPrix() {
          return $this->prix;  
     }
-    public function getId_category() {
-         return $this->id_category;  
+    public function getName_category() {
+         return $this->name_category;  
     }
   // ==================== SETTERS ====================
 
@@ -75,8 +75,8 @@ class ModelProduit extends Model{
     public function setPrix($prix) {
          $this->prix = $prix;
     }
-    public function setId_category($id_category) {
-         $this->id_category = $id_category;
+    public function setName_category($name_category) {
+         $this->name_category = $name_category;
     }
 
   

@@ -57,26 +57,38 @@ switch ($action) {
 		require ("{$ROOT}{$DS}view{$DS}view.php");
 		break;
 		
-	case "created": // Action du formulaire de la création 
+	case "created": // Action du formulaire de la création  
 		if(
-			isset($_REQUEST["name_category"]) 
+			isset($_REQUEST["name"]) && isset($_REQUEST["description"]) && isset($_REQUEST["image"]) && isset($_REQUEST["price"]) && isset($_REQUEST["name_category"]) 
 		){ 
 			 
 			$name_category = $_REQUEST["name_category"];  
+            $name = $_REQUEST["name"];
+            $description = $_REQUEST["description"];
+            $image = $_REQUEST["image"];
+            $price = $_REQUEST["price"];
 
  
 			 //Si l'utilisateur n'existe pas donc on l'ajoute
 									//il faut créer une object ModelUtilisateur pour accéder à insert car elle n'est pas static
-				$u = new ModelCategory(
-					$name_category
+				$u = new ModelProduit( 
+                    $name,
+                    $description,
+                    $image,
+                    $price,
+                    $name_category
 				);	
 				$tab = array(
 				"id" => null,
+                "name" => $name,
+                "description" => $description,
+                "image" => $image,
+                "price" => $price,
 				"name_category" => $name_category,				
 				);		
 				echo $u->insert($tab);
-				$pagetitle = "Category created";
-				$done = "Category created.";
+				$pagetitle = "Product created";
+				$done = "Product created.";
 				$view = "create"; 
 				require ("{$ROOT}{$DS}view{$DS}view.php");
 			
