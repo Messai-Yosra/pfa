@@ -58,9 +58,9 @@ switch ($action) {
 		break;
 		
 	case "created": // Action du formulaire de la création 
-		// if(
-		// 	isset($_REQUEST["name_category"]) 
-		// ){
+		if(
+			isset($_REQUEST["name_category"]) 
+		){ 
 			 
 			$name_category = $_REQUEST["name_category"];  
 
@@ -71,15 +71,16 @@ switch ($action) {
 					$name_category
 				);	
 				$tab = array(
+				"id" => 6,
 				"name_category" => $name_category,				
 				);		
-				$u->insert($tab);
+				echo $u->insert($tab);
 				$pagetitle = "Category created";
 				$done = "Category created.";
-				$view = "create";
+				$view = "create"; 
 				require ("{$ROOT}{$DS}view{$DS}view.php");
 			
-		// }
+		}
 		break;
 	
 	case "update":
