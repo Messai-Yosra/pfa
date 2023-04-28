@@ -42,11 +42,11 @@ switch ($action) {
 	case "delete":
 		if(isset($_REQUEST['id'])){
 			$id = $_REQUEST['id'];
-			$del = ModelCategory::select($id);
+			$del = ModelProduit::select($id);
 			
 			if($del!=null){
-				ModelCategory::delete($id);
-				header('Location: index.php?controller=category&action=readAll');
+				ModelProduit::delete($id);
+				header('Location: index.php?controller=produit&action=readAll');
 			}
 		}
 	    break;

@@ -54,7 +54,7 @@ les variables pré-remplies par le contrôleur */
     <tbody>
         <?php foreach ($tab_u as $u){ 
             $id = $u["id"] ;    
-        ?>
+        ?>  
         
         <tr>
         <th scope="row"> 
