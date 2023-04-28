@@ -71,6 +71,7 @@ switch ($action) {
 					$name_category
 				);	
 				$tab = array(
+				"id" => 6,
 				"name_category" => $name_category,				
 				);		
 				echo $u->insert($tab);

@@ -85,7 +85,7 @@ class Model{
 	public function insert($tab){
 		$sql = "INSERT INTO ".static::$table." VALUES (";
 		foreach ($tab as $cle => $valeur){
-			$sql .=" :".$cle.",";
+			$sql .="name_category =:".$cle.",";
 		}
 		$sql=rtrim($sql,",");
 		$sql.=");";
