@@ -45,7 +45,7 @@ les variables pré-remplies par le contrôleur */
     <thead>
         <tr>
         <th style="width : 40%">Name</th>
-        <th style="width : 20%">Price</th>
+        <th style="width : 20%;">Price</th>
         <th style="width : 20%">Category</th>
 
         <th scope="col" style="width : 20%">Action</th> 
@@ -62,10 +62,10 @@ les variables pré-remplies par le contrôleur */
         
             <?php echo $u["name"]  ; ?>
         </th>
-        <th scope="row"> <?php echo $u["prix"]  ; ?></th>
-        <th scope="row"> <?php echo $u["name_category"]; ?></th>
+        <th scope="row" style="padding-top : 20px">  <?php echo $u["prix"]  ; ?> </th>
+        <th scope="row" style="padding-top : 20px"> <?php echo $u["name_category"]; ?></th>
 
-        <td>
+        <td  style="padding-top : 15px">
             <a href="<?php echo 'index.php?controller=produit&action=update&id='.$id; ?>" class="buttonTable" style="background-color : green ;">Edit</a>
             <a href="<?php echo 'index.php?controller=produit&action=delete&id='.$id; ?>" class="buttonTable" style="background-color : red ;">Delete</a>
 
