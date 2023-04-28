@@ -9,7 +9,7 @@
 <html>
 <head>
 	
-	<title>Create Category</title>
+	<title>Login</title>
 	
 	<?php include "imports.php"; ?>
 	
@@ -82,11 +82,11 @@
 	 
 	
 	<center> 
-		<h2 style="margin-top: 26px">Create Category</h2> 
+		<h2 style="margin-top: 26px">Update Category</h2> 
 
 	
 
-	<form style="width:50%; margin-bottom:90px" action="index.php?controller=category&action=create" method="post"> 
+	<form style="width:50%; margin-bottom:90px" action="index.php?controller=category&action=updated&id=<?=$up['id']?>" method="post"> 
 	 
 	<?php if (isset($error)) { ?>
 		<div class="alert alert-danger" role="alert" style="margin-top : 10px ; font-size : 18px">
@@ -102,11 +102,12 @@
 
 	
 	  <div class="container">
+	    <input type="hidden" value="<?php echo $up["id"];  ?>" name="id" required>
 
-	    <label for="uname"><b>Name Category</b></label>
-	    <input type="text" name="name_category" required> 
+	    <label for="uname"><b>Name</b></label>
+	    <input type="text" value="<?php echo $up["name_category"];  ?>" name="name_category" required> 
 	        
-	    <button type="submit" name="login">Create</button> 
+	    <button type="submit" name="login">Update</button> 
 	    
 
 	  </div>

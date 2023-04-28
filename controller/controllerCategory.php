@@ -58,77 +58,60 @@ switch ($action) {
 		break;
 		
 	case "created": // Action du formulaire de la création 
-		if(
-			isset($_REQUEST["username"]) && isset($_REQUEST["name"]) && isset($_REQUEST["adresse"]) && isset($_REQUEST["password"]) && isset($_REQUEST["createdAt"])
-		){
+		// if(
+		// 	isset($_REQUEST["name_category"]) 
+		// ){
 			 
-			$username = $_REQUEST["username"];
-			$name = $_REQUEST["name"];
-			$adresse = $_REQUEST["adresse"];
-			$password = $_REQUEST["password"];
-			$createdAt = $_REQUEST["createdAt"];
-
-			//il faut vérifier que l'utilisateur n'existe pas dans la bdd 
-			$recherche = ModelUtilisateur::select($username);
+			$name_category = $_REQUEST["name_category"];  
 
  
-			if($recherche==null){ //Si l'utilisateur n'existe pas donc on l'ajoute
+			 //Si l'utilisateur n'existe pas donc on l'ajoute
 									//il faut créer une object ModelUtilisateur pour accéder à insert car elle n'est pas static
-				$u = new ModelUtilisateur(
-					$username,
-					$name,
-					$adresse,
-					$password,
-					$createdAt
+				$u = new ModelCategory(
+					$name_category
 				);	
 				$tab = array(
-				"username" => $username,
-				"name" => $name,
-				"adresse" => $adresse,
-				"password" => $password,
-				"createdAt" => $createdAt				
-				);				
+				"name_category" => $name_category,				
+				);		
 				$u->insert($tab);
-				$pagetitle = "Utilisateur Enregistré";
-				$view = "created";
+				$pagetitle = "Category created";
+				$done = "Category created.";
+				$view = "create";
 				require ("{$ROOT}{$DS}view{$DS}view.php");
-			}	
-		}
+			
+		// }
 		break;
 	
-	// case "update":
-	// 	if(isset($_REQUEST['id'])){
-	// 		$id = $_REQUEST['id'];
-	// 		$up = ModelUtilisateur::select($id);
-	// 		//il faut vérifier que l'utilisateur existe dans la bdd 
-	// 		if($up!=null){
-	// 			$pagetitle = "Modifier l'utilisateur";
-	// 			$view = "update";
-	// 			require ("{$ROOT}{$DS}view{$DS}view.php");			
-	// 		}
+	case "update":
+		if(isset($_REQUEST['id'])){
+			$id = $_REQUEST['id'];
+			$up = ModelCategory::select($id);
+			//il faut vérifier que l'utilisateur existe dans la bdd 
+			if($up!=null){
+				$pagetitle = "Edit Category";
+				$view = "update";
+				require ("{$ROOT}{$DS}view{$DS}view.php");			
+			}
 			
-	// 	}
-	// 	break;
+		}
+		break;
 		
 	case "updated": // Action du formulaire de modification 
 		if(
-			isset($_REQUEST["id"]) && isset($_REQUEST["username"]) && isset($_REQUEST["name"]) && isset($_REQUEST["adresse"]) && isset($_REQUEST["password"]) && isset($_REQUEST["createdAt"])
+			isset($_REQUEST["id"]) && isset($_REQUEST["name_category"])
 		){
 			$id = $_REQUEST["id"];
 			$tab = array(
-   			 "username" => $_REQUEST["username"],
-			 "name" => $_REQUEST["name"],
-			 "adresse" => $_REQUEST["adresse"],
-			 "password" => $_REQUEST["password"],
-			 "createdAt" => $_REQUEST["createdAt"]
-			 
+				"name_category" => $_REQUEST["name_category"],
    			 );
-			$o = ModelUtilisateur::select($id);
+			$o = ModelCategory::select($id);
 			//il faut vérifier que l'utilisateur existe dans la bdd 
 			if($o!=null){
-				$u = ModelUtilisateur::update($tab, $id);		
-				$pagetitle = "Utilisateur modifié";
-				$view = "updated";
+				$u = ModelCategory::update($tab, $id);		
+				$pagetitle = "Category edited";
+				$view = "update";
+				$done="Category Updated." ; 
+				$up = ModelCategory::select($id);
 				require ("{$ROOT}{$DS}view{$DS}view.php");
 			}
 		}	

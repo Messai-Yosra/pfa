@@ -56,7 +56,7 @@ les variables pré-remplies par le contrôleur */
         <tr>
         <th scope="row"> <?php echo $u["name_category"]  ; ?></th>
         <td>
-            <a href="" class="buttonTable" style="background-color : green ;">Edit</a>
+            <a href="<?php echo 'index.php?controller=category&action=update&id='.$id; ?>" class="buttonTable" style="background-color : green ;">Edit</a>
             <a href="<?php echo 'index.php?controller=category&action=delete&id='.$id; ?>" class="buttonTable" style="background-color : red ;">Delete</a>
 
         </td> 
