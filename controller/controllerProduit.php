@@ -124,20 +124,25 @@ switch ($action) {
             $image = $_REQUEST["image"];
             $price = $_REQUEST["price"];
             $name_category = $_REQUEST["name_category"];
-            
+
 
 
 			$tab = array(
+        		"id" => $id,
+                "name" => $name,
+                "description" => $description,
+                "image" => $image,
+                "prix" => $price,                        
 				"name_category" => $_REQUEST["name_category"],
    			 );
-			$o = ModelCategory::select($id);
+			$o = ModelProduit::select($id);
 			//il faut vérifier que l'utilisateur existe dans la bdd 
 			if($o!=null){
-				$u = ModelCategory::update($tab, $id);		
-				$pagetitle = "Category edited";
+				$u = ModelProduit::update($tab, $id);		
+				$pagetitle = "Product edited";
 				$view = "update";
-				$done="Category Updated." ; 
-				$up = ModelCategory::select($id);
+				$done="Product Updated." ; 
+				$up = ModelProduit::select($id);
 				require ("{$ROOT}{$DS}view{$DS}view.php");
 			}
 		}	
