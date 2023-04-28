@@ -58,9 +58,9 @@ switch ($action) {
 		break;
 		
 	case "created": // Action du formulaire de la création 
-		if(
-			isset($_REQUEST["name_category"]) 
-		){
+		// if(
+		// 	isset($_REQUEST["name_category"]) 
+		// ){
 			 
 			$name_category = $_REQUEST["name_category"];  
 
@@ -79,7 +79,7 @@ switch ($action) {
 				$view = "create";
 				require ("{$ROOT}{$DS}view{$DS}view.php");
 			
-		}
+		// }
 		break;
 	
 	case "update":
