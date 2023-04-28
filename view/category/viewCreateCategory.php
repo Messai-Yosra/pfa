@@ -1,10 +1,19 @@
 <center>
-<form method="POST" action="index.php?controller=utilisateur&action=created">
+<form method="POST" action="index.php?controller=category&action=created">
   <fieldset>
      <legend>Add Category</legend> 
 	 <p>
-     <label for="ncin">Category Name</label> :
-     <input type="text"  name="name"  id="name"   required/>
+
+    <?php if (isset($done)) { ?>
+		<div class="alert alert-success" role="alert" style="margin-top : 10px ; font-size : 18px">
+			<?php echo $done ;  ?>
+		</div>
+	  <?php } ?>
+
+
+
+     <label for="name_category">Category Name</label> :
+     <input type="text"  name="name_category"  id="name_category"   required/>
      </p> 
 	  
      
@@ -14,4 +23,4 @@
     background-color: #6488FF; " />
    </fieldset> 
 </form>
-     </center>
+</center>
