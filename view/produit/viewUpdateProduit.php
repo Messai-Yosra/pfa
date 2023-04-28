@@ -82,11 +82,11 @@
 	 
 	
 	<center> 
-		<h2 style="margin-top: 26px">Create Product</h2> 
+		<h2 style="margin-top: 26px">Update Product</h2> 
 
 	
 
-	<form style="width:50%; margin-bottom:90px" action="index.php?controller=produit&action=created" method="post"> 
+	<form style="width:50%; margin-bottom:90px" action="index.php?controller=produit&action=updated" method="post"> 
 	 
 	<?php if (isset($error)) { ?>
 		<div class="alert alert-danger" role="alert" style="margin-top : 10px ; font-size : 18px">
@@ -104,21 +104,28 @@
 	  <div class="container">
 
 	    <label for="uname"><b>Name </b></label>
-	    <input type="text" name="name" required> 
+	    <input type="text" name="name" value="<?php echo $up["name"] ;  ?>" required> 
 	    
         <label for="description"><b>Description </b></label>
-	    <input type="text" name="description" required> 
+	    <input type="text" name="description" value="<?php echo $up["description"] ;  ?>" required> 
 	        
         <label for="image"><b>image </b></label>
-	    <input type="text" name="image" required> 
+	    <input type="text" name="image" value="<?php echo $up["image"] ;  ?>" required> 
         
         <label for="price"><b>Price </b></label>
-	    <input type="text" name="price" required> 
+	    <input type="text" name="price" value="<?php echo $up["prix"] ;  ?>" required> 
 	    
         <label for="category"><b>Category </b></label>
         <select name="name_category">
-            <?php foreach ($categories as $c){  ?>
-            <option value="Sac" ><?php echo $c["name_category"] ;  ?></option>
+            <?php foreach ($categories as $c){  
+                    if ($c["name_category"] == $up["name_category"]){ ?>
+                        <option value="<?php echo $c["name_category"] ;  ?>" selected><?php echo $c["name_category"] ;  ?></option>
+                    <?php } else { ?>
+                        <option value="<?php echo $c["name_category"] ;  ?>"><?php echo $c["name_category"] ;  ?></option>
+                    <?php }
+
+            ?>
+
             <?php  } ?>
         </select>
 	    

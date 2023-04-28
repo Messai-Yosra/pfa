@@ -6,6 +6,7 @@ adéquate. */
 $controller = "produit";
 // chargement du modèle
 require_once ("{$ROOT}{$DS}model{$DS}ModelProduit.php"); 
+require_once ("{$ROOT}{$DS}model{$DS}ModelCategory.php"); 
 
 
 
@@ -54,6 +55,8 @@ switch ($action) {
 	case "create":
 		$pagetitle = "Add Category";
 		$view = "create";
+       	$categories = ModelCategory::getAll();//appel au modèle pour gerer la BD
+         
 		require ("{$ROOT}{$DS}view{$DS}view.php");
 		break;
 		
@@ -98,11 +101,13 @@ switch ($action) {
 	case "update":
 		if(isset($_REQUEST['id'])){
 			$id = $_REQUEST['id'];
-			$up = ModelCategory::select($id);
+			$up = ModelProduit::select($id);
 			//il faut vérifier que l'utilisateur existe dans la bdd 
 			if($up!=null){
 				$pagetitle = "Edit Category";
 				$view = "update";
+               	$categories = ModelCategory::getAll();//appel au modèle pour gerer la BD
+
 				require ("{$ROOT}{$DS}view{$DS}view.php");			
 			}
 			
@@ -111,9 +116,17 @@ switch ($action) {
 		
 	case "updated": // Action du formulaire de modification 
 		if(
-			isset($_REQUEST["id"]) && isset($_REQUEST["name_category"])
+			isset($_REQUEST["id"]) && isset($_REQUEST["name"]) && isset($_REQUEST["description"]) && isset($_REQUEST["image"]) && isset($_REQUEST["price"]) && isset($_REQUEST["name_category"]) 
 		){
 			$id = $_REQUEST["id"];
+            $name = $_REQUEST["name"];
+            $description = $_REQUEST["description"];
+            $image = $_REQUEST["image"];
+            $price = $_REQUEST["price"];
+            $name_category = $_REQUEST["name_category"];
+            
+
+
 			$tab = array(
 				"name_category" => $_REQUEST["name_category"],
    			 );
