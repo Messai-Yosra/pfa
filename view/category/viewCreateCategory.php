@@ -86,7 +86,7 @@
 
 	
 
-	<form style="width:50%; margin-bottom:90px" action="index.php?controller=category&action=create" method="post"> 
+	<form style="width:50%; margin-bottom:90px" action="index.php?controller=category&action=created" method="post"> 
 	 
 	<?php if (isset($error)) { ?>
 		<div class="alert alert-danger" role="alert" style="margin-top : 10px ; font-size : 18px">
@@ -114,8 +114,7 @@
 	  
 	</form>
 	</center>
-	
-	<?php //include "../footer.php"; ?>
+	 
 
 </body>
 </html>
