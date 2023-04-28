@@ -83,17 +83,24 @@ class Model{
 	}
 	
 	public function insert($tab){
-		$sql = "INSERT INTO ".static::$table." VALUES(";
+		$sql = "INSERT INTO ".static::$table." VALUES (";
 		foreach ($tab as $cle => $valeur){
 			$sql .=" :".$cle.",";
 		}
 		$sql=rtrim($sql,",");
 		$sql.=");";
+
+		echo $sql  ; 
 		$req_prep = self::$pdo->prepare($sql);
 		$values = array();
 		foreach ($tab as $cle => $valeur)
 				$values[":".$cle] = $valeur;
+				//echo $valeur ;
+		
+		// echo $req_prep ; 
 		// execute prend l'argument $values puisqu'on a pas utilisé bindParam
+		 
+		echo $values[":name_category"] ;
 		$req_prep->execute($values);
 	}
 

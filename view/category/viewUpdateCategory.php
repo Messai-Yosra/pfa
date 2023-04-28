@@ -9,7 +9,7 @@
 <html>
 <head>
 	
-	<title>Create Category</title>
+	<title>Login</title>
 	
 	<?php include "imports.php"; ?>
 	
@@ -82,7 +82,7 @@
 	 
 	
 	<center> 
-		<h2 style="margin-top: 26px">Create Category</h2> 
+		<h2 style="margin-top: 26px">Update Category</h2> 
 
 	
 

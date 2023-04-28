@@ -72,7 +72,7 @@ switch ($action) {
 				);	
 				$tab = array(
 				"name_category" => $name_category,				
-				);				
+				);		
 				$u->insert($tab);
 				$pagetitle = "Category created";
 				$done = "Category created.";
@@ -82,39 +82,36 @@ switch ($action) {
 		}
 		break;
 	
-	// case "update":
-	// 	if(isset($_REQUEST['id'])){
-	// 		$id = $_REQUEST['id'];
-	// 		$up = ModelUtilisateur::select($id);
-	// 		//il faut vérifier que l'utilisateur existe dans la bdd 
-	// 		if($up!=null){
-	// 			$pagetitle = "Modifier l'utilisateur";
-	// 			$view = "update";
-	// 			require ("{$ROOT}{$DS}view{$DS}view.php");			
-	// 		}
+	case "update":
+		if(isset($_REQUEST['id'])){
+			$id = $_REQUEST['id'];
+			$up = ModelCategory::select($id);
+			//il faut vérifier que l'utilisateur existe dans la bdd 
+			if($up!=null){
+				$pagetitle = "Edit Category";
+				$view = "update";
+				require ("{$ROOT}{$DS}view{$DS}view.php");			
+			}
 			
-	// 	}
-	// 	break;
+		}
+		break;
 		
 	case "updated": // Action du formulaire de modification 
 		if(
-			isset($_REQUEST["id"]) && isset($_REQUEST["username"]) && isset($_REQUEST["name"]) && isset($_REQUEST["adresse"]) && isset($_REQUEST["password"]) && isset($_REQUEST["createdAt"])
+			isset($_REQUEST["id"]) && isset($_REQUEST["name_category"])
 		){
 			$id = $_REQUEST["id"];
 			$tab = array(
-   			 "username" => $_REQUEST["username"],
-			 "name" => $_REQUEST["name"],
-			 "adresse" => $_REQUEST["adresse"],
-			 "password" => $_REQUEST["password"],
-			 "createdAt" => $_REQUEST["createdAt"]
-			 
+				"name_category" => $_REQUEST["name_category"],
    			 );
-			$o = ModelUtilisateur::select($id);
+			$o = ModelCategory::select($id);
 			//il faut vérifier que l'utilisateur existe dans la bdd 
 			if($o!=null){
-				$u = ModelUtilisateur::update($tab, $id);		
-				$pagetitle = "Utilisateur modifié";
-				$view = "updated";
+				$u = ModelCategory::update($tab, $id);		
+				$pagetitle = "Category edited";
+				$view = "update";
+				$done="Category Updated." ; 
+				$up = ModelCategory::select($id);
 				require ("{$ROOT}{$DS}view{$DS}view.php");
 			}
 		}	
