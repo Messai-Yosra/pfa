@@ -28,13 +28,20 @@
                             </div><!-- end title -->
 
                             <div class="single-post-media">
-                                <img src="<?php echo $u["image"] ?>" alt="" class="img-fluid">
+                                <img src="<?php echo $u["image"] ?>" style="height: 400px; width : auto ;" alt="" class="img-fluid">
                             </div><!-- end media -->
 
                             <div class="blog-content">  
                                 <div class="pp">
                                     <p><?php echo $u["description"] ?></p>
+
+                                    <div style="font-size : 24px ; font-weight : 600 ; ">
+                                        Price : <?php echo $u["prix"]. " DT" ;  ?>
+                                    </div>
                                     
+                                    <button type="button" class="btn btn-primary btn-lg btn-block" style="margin : 25x    ">
+                                        <i class="fa fa-shopping-cart"></i>    
+                                    Add to Cart</button>
                                 </div><!-- end pp -->
 
                                  
@@ -52,16 +59,10 @@
                                     </div><!-- end col -->
 
                                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                                        <h4><a href="#"><?php $user["name"] ; ?></a></h4>
-                                        <p>Quisque sed tristique felis. Lorem <a href="#">visit my website</a> amet, consectetur adipiscing elit. Phasellus quis mi auctor, tincidunt nisl eget, finibus odio. Duis tempus elit quis risus congue feugiat. Thanks for stop Forest Time!</p>
+                                        <h4><a href="#"><?php echo $user["username"] ; ?></a></h4>
+                                        <p><?php echo $user["adresse"] ;  ?> </p>
 
                                         <div class="topsocial">
-                                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Youtube"><i class="fa fa-youtube"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Website"><i class="fa fa-link"></i></a>
                                         </div><!-- end social -->
 
                                     </div><!-- end col -->
@@ -70,46 +71,8 @@
 
                             <hr class="invis1">
 
-                            <div class="custombox clearfix">
-                                <h4 class="small-title">You may also like</h4>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="blog-box">
-                                            <div class="post-media">
-                                                <a href="garden-single.html" title="">
-                                                    <img src="upload/garden_single_03.jpg" alt="" class="img-fluid">
-                                                    <div class="hovereffect">
-                                                        <span class=""></span>
-                                                    </div><!-- end hover -->
-                                                </a>
-                                            </div><!-- end media -->
-                                            <div class="blog-meta">
-                                                <h4><a href="garden-single.html" title="">We are guests of ABC Design Studio</a></h4>
-                                                <small><a href="blog-category-01.html" title="">Trends</a></small>
-                                                <small><a href="blog-category-01.html" title="">21 July, 2017</a></small>
-                                            </div><!-- end meta -->
-                                        </div><!-- end blog-box -->
-                                    </div><!-- end col -->
-
-                                    <div class="col-lg-6">
-                                        <div class="blog-box">
-                                            <div class="post-media">
-                                                <a href="garden-single.html" title="">
-                                                    <img src="upload/garden_single_02.jpg" alt="" class="img-fluid">
-                                                    <div class="hovereffect">
-                                                        <span class=""></span>
-                                                    </div><!-- end hover -->
-                                                </a>
-                                            </div><!-- end media -->
-                                            <div class="blog-meta">
-                                                <h4><a href="garden-single.html" title="">Nostalgia at work with family</a></h4>
-                                                <small><a href="blog-category-01.html" title="">News</a></small>
-                                                <small><a href="blog-category-01.html" title="">20 July, 2017</a></small>
-                                            </div><!-- end meta -->
-                                        </div><!-- end blog-box -->
-                                    </div><!-- end col -->
-                                </div><!-- end row -->
-                            </div><!-- end custom-box -->
+                            <!-- add to cart button -->
+                            
 
                             <hr class="invis1">
 
