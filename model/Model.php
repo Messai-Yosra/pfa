@@ -90,7 +90,7 @@ class Model{
 		$sql=rtrim($sql,",");
 		$sql.=");";
 
-		echo $sql  ; 
+		//echo $sql  ; 
 		$req_prep = self::$pdo->prepare($sql);
 		$values = array();
 		foreach ($tab as $cle => $valeur)
@@ -100,7 +100,7 @@ class Model{
 		// echo $req_prep ; 
 		// execute prend l'argument $values puisqu'on a pas utilisé bindParam
 		 
-		echo $values[":name_category"] ;
+		//echo $values[":name_category"] ;
 		$req_prep->execute($values);
 	}
 

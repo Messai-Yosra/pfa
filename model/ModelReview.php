@@ -10,7 +10,7 @@ class ModelReview extends Model{
 //Même noms et ordre que dans la table utilisateur
   private $id;
   private $description ;
-  private $id_user ;
+  private $name_user ;
   private $id_produit ;
   private $createdAt ;
 
@@ -22,13 +22,13 @@ class ModelReview extends Model{
   // ====== constructeur =======
   public function __construct(
     $description = NULL,
-    $id_user = NULL,
+    $name_user = NULL,
     $id_produit = NULL,
     $createdAt = NULL
   ) {
-    if ($description != NULL && $id_user != NULL && $id_produit != NULL && $createdAt != NULL) {
+    if ($description != NULL && $name_user != NULL && $id_produit != NULL && $createdAt != NULL) {
       $this->description = $description ;
-      $this->id_user = $id_user ;
+      $this->name_user = $name_user ;
       $this->id_produit = $id_produit ;
       $this->createdAt = $createdAt ;
     }
@@ -43,9 +43,9 @@ class ModelReview extends Model{
     public function getDescription() {
          return $this->description;  
     }
-    public function getId_user() {
-         return $this->id_user;  
-    }
+     public function getName_user() {
+           return $this->name_user;  
+     }
     public function getId_produit() {
          return $this->id_produit;  
     }
@@ -60,9 +60,9 @@ class ModelReview extends Model{
     public function setDescription($description) {
          $this->description = $description;
     }
-    public function setId_user($id_user) {
-         $this->id_user = $id_user;
-    }
+     public function setName_user($name_user) {
+            $this->name_user = $name_user;
+     }
     public function setId_produit($id_produit) {
          $this->id_produit = $id_produit;
     }

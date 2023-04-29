@@ -6,6 +6,10 @@ adéquate. */
 $controller = "review";
 // chargement du modèle
 require_once ("{$ROOT}{$DS}model{$DS}ModelReview.php"); 
+require_once ("{$ROOT}{$DS}model{$DS}ModelProduit.php"); 
+require_once ("{$ROOT}{$DS}model{$DS}ModelUtilisateur.php"); 
+
+
 
 
 
@@ -59,26 +63,47 @@ switch ($action) {
 		
 	case "created": // Action du formulaire de la création 
 		if(
-			isset($_REQUEST["name_category"]) 
+			isset($_REQUEST["description"]) && isset($_REQUEST["name_user"]) && isset($_REQUEST["id_produit"]) 
 		){ 
 			 
-			$name_category = $_REQUEST["name_category"];  
-
+			$description = $_REQUEST["description"];  
+            $name_user = $_REQUEST["name_user"];
+            $id_produit = $_REQUEST["id_produit"]; 
+            $createdAt = date("Y-m-d");
  
 			 //Si l'utilisateur n'existe pas donc on l'ajoute
 									//il faut créer une object ModelUtilisateur pour accéder à insert car elle n'est pas static
-				$u = new ModelCategory(
-					$name_category
+				$u = new ModelReview(
+					$description,
+                    $name_user,
+                    $id_produit,
+                    $createdAt
 				);	
 				$tab = array(
 				"id" => null,
-				"name_category" => $name_category,				
+				"description" => $description,
+                "name_user" => $name_user,
+                "id_produit" => $id_produit,
+                "createdAt" => $createdAt
 				);		
 				echo $u->insert($tab);
-				$pagetitle = "Category created";
-				$done = "Category created.";
-				$view = "create"; 
-				require ("{$ROOT}{$DS}view{$DS}view.php");
+				$pagetitle = "Review Created";
+				$done = "Review created.";
+				$view = "create";
+
+                // ===== go to produit ===== 
+                $u = ModelProduit::select($id_produit);
+                    if($u!=null){
+                        $user = ModelUtilisateur::select($u["id_user"]);
+                        $controller = "produit" ;  
+                        $pagetitle = "Product Details";
+                        $view = "read";
+                        require ("{$ROOT}{$DS}view{$DS}view.php");
+                    }
+                
+
+
+				//require ("{$ROOT}{$DS}view{$DS}view.php");
 			
 		}
 		break;
