@@ -32,7 +32,7 @@ session_start();
                                 <div class="shadow-desc">
                                     <div class="blog-meta">
                                         <span class="bg-aqua"><a href="blog-category-01.html" title=""><?php echo $produit["name_category"] ;  ?> </a></span>
-                                        <h4><a href="garden-single.html" title=""><?php echo $produit["name"] ;  ?></a></h4>
+                                        <h4><a href="index.php?controller=produit&action=read&id=<?=$produit['id']?>" title=""><?php echo $produit["name"] ;  ?></a></h4>
                                         <a href="garden-single.html" title=""><?php echo $produit["prix"]." DT" ;  ?></a>
                                     </div><!-- end meta -->
                                 </div><!-- end shadow-desc -->
@@ -63,7 +63,7 @@ session_start();
                                 <div class="blog-box row">
                                     <div class="col-md-4">
                                         <div class="post-media">
-                                            <a href="garden-single.html" title="">
+                                            <a href="index.php?controller=produit&action=read&id=<?=$produit['id']?>" title="">
                                                 <img src="<?php echo $produit["image"] ?>" alt="" class="img-fluid">
                                                 <div class="hovereffect"></div>
                                             </a>
@@ -71,10 +71,10 @@ session_start();
                                     </div><!-- end col -->
 
                                     <div class="blog-meta big-meta col-md-8">
-                                        <span class="bg-aqua"><a href="garden-category.html" title=""><?php echo $produit["name_category"] ?></a></span>
-                                        <h4><a href="garden-single.html" title=""><?php echo $produit["name"] ;  ?></a></h4>
+                                        <span class="bg-aqua"><a href="index.php?controller=produit&action=read&id=<?=$produit['id']?>" title=""><?php echo $produit["name_category"] ?></a></span>
+                                        <h4><a href="index.php?controller=produit&action=read&id=<?=$produit['id']?>" title=""><?php echo $produit["name"] ;  ?></a></h4>
                                         <p><?php echo $produit["description"] ;  ?></p>
-                                        <small><a href="garden-category.html" title=""><i class="fa fa-eye"></i> 1887</a></small>
+                                        <small><a href="index.php?controller=produit&action=read&id=<?=$produit['id']?>" title=""><i class="fa fa-eye"></i> 1887</a></small>
                                         <br>
                                         <br>
 
