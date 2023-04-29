@@ -103,6 +103,8 @@
 	
 	  <div class="container">
 
+	    <input type="hidden" name="id_user" value="<?php echo $_SESSION["user"]["id"] ;  ?>"  required> 
+
 	    <label for="uname"><b>Name </b></label>
 	    <input type="text" name="name" required> 
 	    

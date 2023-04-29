@@ -32,7 +32,7 @@ session_start();
                                 <div class="shadow-desc">
                                     <div class="blog-meta">
                                         <span class="bg-aqua"><a href="blog-category-01.html" title=""><?php echo $produit["name_category"] ;  ?> </a></span>
-                                        <h4><a href="garden-single.html" title=""><?php echo $produit["name"] ;  ?></a></h4>
+                                        <h4><a href="index.php?controller=produit&action=read&id=<?=$produit['id']?>" title=""><?php echo $produit["name"] ;  ?></a></h4>
                                         <a href="garden-single.html" title=""><?php echo $produit["prix"]." DT" ;  ?></a>
                                     </div><!-- end meta -->
                                 </div><!-- end shadow-desc -->

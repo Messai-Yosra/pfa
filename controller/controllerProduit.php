@@ -6,7 +6,9 @@ adéquate. */
 $controller = "produit";
 // chargement du modèle
 require_once ("{$ROOT}{$DS}model{$DS}ModelProduit.php"); 
-require_once ("{$ROOT}{$DS}model{$DS}ModelCategory.php"); 
+require_once ("{$ROOT}{$DS}model{$DS}ModelCategory.php");
+require_once ("{$ROOT}{$DS}model{$DS}ModelUtilisateur.php"); 
+
 
 
 
@@ -30,10 +32,11 @@ switch ($action) {
 
 	case "read":	
 		if(isset($_REQUEST['id'])){
-			$ncin = $_REQUEST['id'];
-			$u = ModelUtilisateur::select($id);
+			$id = $_REQUEST['id'];
+			$u = ModelProduit::select($id);
 				if($u!=null){
-					$pagetitle = "Details de l'utilisateur";
+					$user = ModelUtilisateur::select($u["id_user"]);
+					$pagetitle = "Product Details";
 					$view = "read";
 					require ("{$ROOT}{$DS}view{$DS}view.php");
 				}
@@ -62,7 +65,7 @@ switch ($action) {
 		
 	case "created": // Action du formulaire de la création  
 		if(
-			isset($_REQUEST["name"]) && isset($_REQUEST["description"]) && isset($_REQUEST["image"]) && isset($_REQUEST["price"]) && isset($_REQUEST["name_category"]) 
+			isset($_REQUEST["name"]) && isset($_REQUEST["description"]) && isset($_REQUEST["image"]) && isset($_REQUEST["price"]) && isset($_REQUEST["name_category"]) && isset($_REQUEST["id_user"]) 
 		){ 
 			 
 			$name_category = $_REQUEST["name_category"];  
@@ -70,6 +73,7 @@ switch ($action) {
             $description = $_REQUEST["description"];
             $image = $_REQUEST["image"];
             $price = $_REQUEST["price"];
+			$id_user = $_REQUEST["id_user"];
 
  
 			 //Si l'utilisateur n'existe pas donc on l'ajoute
@@ -79,7 +83,8 @@ switch ($action) {
                     $description,
                     $image,
                     $price,
-                    $name_category
+                    $name_category,
+					$id_user
 				);	
 				$tab = array(
 				"id" => null,
@@ -87,7 +92,8 @@ switch ($action) {
                 "description" => $description,
                 "image" => $image,
                 "price" => $price,
-				"name_category" => $name_category,				
+				"name_category" => $name_category,		
+				"id_user" => $id_user,
 				);		
 				echo $u->insert($tab);
 				$pagetitle = "Product created";
@@ -116,7 +122,7 @@ switch ($action) {
 		
 	case "updated": // Action du formulaire de modification 
 		if(
-			isset($_REQUEST["id"]) && isset($_REQUEST["name"]) && isset($_REQUEST["description"]) && isset($_REQUEST["image"]) && isset($_REQUEST["price"]) && isset($_REQUEST["name_category"]) 
+			isset($_REQUEST["id"]) && isset($_REQUEST["name"]) && isset($_REQUEST["description"]) && isset($_REQUEST["image"]) && isset($_REQUEST["price"]) && isset($_REQUEST["name_category"]) && isset($_REQUEST["id_user"]) 
 		){
 			$id = $_REQUEST["id"];
             $name = $_REQUEST["name"];
@@ -124,7 +130,7 @@ switch ($action) {
             $image = $_REQUEST["image"];
             $price = $_REQUEST["price"];
             $name_category = $_REQUEST["name_category"];
-
+			$id_user = $_REQUEST["id_user"];
 
 
 			$tab = array(
@@ -134,6 +140,7 @@ switch ($action) {
                 "image" => $image,
                 "prix" => $price,                        
 				"name_category" => $_REQUEST["name_category"],
+				"id_user" => $_REQUEST["id_user"],
    			 );
 			$o = ModelProduit::select($id);
 			//il faut vérifier que l'utilisateur existe dans la bdd 
