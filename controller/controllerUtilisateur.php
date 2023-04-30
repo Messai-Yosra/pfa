@@ -8,6 +8,7 @@ $controller = "utilisateur";
 require_once ("{$ROOT}{$DS}model{$DS}ModelUtilisateur.php"); 
 require_once ("{$ROOT}{$DS}model{$DS}ModelProduit.php"); 
 require_once ("{$ROOT}{$DS}model{$DS}ModelEvent.php"); 
+require_once ("{$ROOT}{$DS}model{$DS}ModelCategory.php"); 
 
 
 
@@ -34,6 +35,7 @@ switch ($action) {
         $pagetitle = "Home";
        	$produits = ModelProduit::getAll();//appel au modèle pour gerer la BD
        	$events = ModelEvent::getAll();//appel au modèle pour gerer la BD
+       	$categories = ModelCategory::getAll();//appel au modèle pour gerer la BD
 
 		require ("{$ROOT}{$DS}view{$DS}home.php");//"redirige" vers la vue
 

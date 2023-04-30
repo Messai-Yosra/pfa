@@ -44,6 +44,8 @@ switch ($action) {
 
        				$products = ModelProduit::getAll();//appel au modèle pour gerer la BD
        				$events = ModelEvent::getAll();//appel au modèle pour gerer la BD
+       				$categories = ModelCategory::getAll();//appel au modèle pour gerer la BD
+
 					
 
 					$reviews = ModelReview::getAll();
