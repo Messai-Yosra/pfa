@@ -8,6 +8,8 @@ $controller = "produit";
 require_once ("{$ROOT}{$DS}model{$DS}ModelProduit.php"); 
 require_once ("{$ROOT}{$DS}model{$DS}ModelCategory.php");
 require_once ("{$ROOT}{$DS}model{$DS}ModelUtilisateur.php"); 
+require_once ("{$ROOT}{$DS}model{$DS}ModelReview.php"); 
+
 
 
 
@@ -37,6 +39,13 @@ switch ($action) {
 				if($u!=null){
 					$user = ModelUtilisateur::select($u["id_user"]);
 					$pagetitle = "Product Details";
+					$reviews = ModelReview::getAll();
+					$review_all = array();
+					foreach ($reviews as $review) {
+						if ($review["id_produit"] == $u["id"]) {
+							$review_all[] = $review;
+						}
+					}
 					$view = "read";
 					require ("{$ROOT}{$DS}view{$DS}view.php");
 				}

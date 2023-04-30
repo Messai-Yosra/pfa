@@ -35,7 +35,11 @@ switch ($controller) {
 			case "produit" :
 				require ("{$ROOT}{$DS}controller{$DS}controllerProduit.php");  
 				break;	
-				
+			
+			case "review" :
+				require ("{$ROOT}{$DS}controller{$DS}controllerReview.php");  
+				break;	
+
 			case "default" :
 				require ("{$ROOT}{$DS}controller{$DS}controllerUtilisateur.php");
 				break;
