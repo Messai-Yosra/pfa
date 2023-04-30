@@ -53,6 +53,8 @@ les variables pré-remplies par le contrôleur */
     </thead>
     <tbody>
         <?php foreach ($tab_u as $u){ 
+            if ($u["id_user"] == $_SESSION["user"]["id"]) {
+
             $id = $u["id"] ;    
         ?>  
         
@@ -71,7 +73,9 @@ les variables pré-remplies par le contrôleur */
 
         </td> 
         </tr>
-        <?php } ?>
+        <?php } 
+        }
+        ?>
     </tbody>
     </table> 
 </center>
