@@ -101,9 +101,9 @@ switch ($action) {
 	case "update":
 		if(isset($_REQUEST['id'])){
 			$id = $_REQUEST['id'];
-			$up = ModelEvent::select($id);
+			$u = ModelEvent::select($id);
 			//il faut vérifier que l'utilisateur existe dans la bdd 
-			if($up!=null){
+			if($u!=null){
 				$pagetitle = "Edit Event";
 				$view = "update";
 				require ("{$ROOT}{$DS}view{$DS}view.php");			
@@ -114,20 +114,31 @@ switch ($action) {
 		
 	case "updated": // Action du formulaire de modification 
 		if(
-			isset($_REQUEST["id"]) && isset($_REQUEST["name_category"])
+			isset($_REQUEST["id"]) && isset($_REQUEST["title"]) && isset($_REQUEST["image"]) && isset($_REQUEST["description"]) && isset($_REQUEST["start_date"]) && isset($_REQUEST["name_user"]) 
 		){
 			$id = $_REQUEST["id"];
+			$title = $_REQUEST["title"];
+            $image = $_REQUEST["image"];
+            $description = $_REQUEST["description"];
+            $start_date = $_REQUEST["start_date"];
+            $name_user = $_REQUEST["name_user"];
 			$tab = array(
-				"name_category" => $_REQUEST["name_category"],
+				"id" => $id,
+                "title" => $title,	
+                "image" => $image,
+                "description" => $description,
+                "start_date" => $start_date,
+                "name_user" => $name_user,
+                "createdAt" => $_REQUEST["createdAt"]
    			 );
-			$o = ModelCategory::select($id);
+			$o = ModelEvent::select($id);
 			//il faut vérifier que l'utilisateur existe dans la bdd 
 			if($o!=null){
-				$u = ModelCategory::update($tab, $id);		
-				$pagetitle = "Category edited";
+				$u = ModelEvent::update($tab, $id);		
+				$pagetitle = "Event edited";
 				$view = "update";
-				$done="Category Updated." ; 
-				$up = ModelCategory::select($id);
+				$done="Event Updated." ; 
+				$up = ModelEvent::select($id);
 				require ("{$ROOT}{$DS}view{$DS}view.php");
 			}
 		}	

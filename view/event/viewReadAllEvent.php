@@ -45,7 +45,7 @@
         <th scope="row"> <?php echo $u["start_date"]  ; ?></th>
 
         <td>
-            <a href="<?php echo 'index.php?controller=category&action=update&id='.$id; ?>" class="buttonTable" style="background-color : green ;">Edit</a>
+            <a href="<?php echo 'index.php?controller=event&action=update&id='.$id; ?>" class="buttonTable" style="background-color : green ;">Edit</a>
             <a href="<?php echo 'index.php?controller=event&action=delete&id='.$id; ?>" class="buttonTable" style="background-color : red ;">Delete</a>
 
         </td> 

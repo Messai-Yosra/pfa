@@ -86,7 +86,7 @@
 
 	
 
-	<form style="width:50%; margin-bottom:90px" action="index.php?controller=category&action=updated&id=<?=$up['id']?>" method="post"> 
+	<form style="width:50%; margin-bottom:90px" action="index.php?controller=event&action=updated&id=<?=$u['id']?>" method="post"> 
 	 
 	<?php if (isset($error)) { ?>
 		<div class="alert alert-danger" role="alert" style="margin-top : 10px ; font-size : 18px">
@@ -102,11 +102,24 @@
 
 	
 	  <div class="container">
-	    <input type="hidden" value="<?php echo $up["id"];  ?>" name="id" required>
+	    <input type="hidden" value="<?php echo $u["id"];  ?>" name="id" required>
 
-	    <label for="uname"><b>Name</b></label>
-	    <input type="text" value="<?php echo $up["name_category"];  ?>" name="name_category" required> 
-	        
+	    <label for="uname"><b>Title</b></label>
+	    <input type="text" name="title" required value="<?php echo $u["title"] ; ?>">
+        
+        <label for="uname"><b>Image</b></label>
+	    <input type="text" name="image" required value="<?php echo $u["image"] ; ?>">
+	     
+        <label for="uname"><b>Description</b></label>
+	    <input type="text" name="description" required value="<?php echo $u["description"] ; ?>">
+
+
+        <label for="uname"><b>Start Date</b></label>
+	    <input type="datetime-local" name="start_date" required value="<?php echo $u["start_date"] ; ?>">
+
+        <input type="hidden" name="name_user" value="<?php echo $_SESSION['user']["username"]; ?>">
+        <input type="hidden" name="createdAt" value="<?php echo $u["createdAt"]; ?>">
+        
 	    <button type="submit" name="login">Update</button> 
 	    
 

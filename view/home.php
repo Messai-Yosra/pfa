@@ -144,27 +144,14 @@ session_start();
                                 </div><!-- end blog-list -->
                             </div><!-- end widget -->
 
-                            <div class="widget">
-                                <h2 class="widget-title">Advertising</h2>
-                                <div class="banner-spot clearfix">
-                                    <div class="banner-img">
-                                        <img src="upload/banner_04.jpg" alt="" class="img-fluid">
-                                    </div><!-- end banner-img -->
-                                </div><!-- end banner -->
-                            </div><!-- end widget -->
+                             
 
                             <div class="widget">
-                                <h2 class="widget-title">Instagram Feed</h2>
+                                <h2 class="widget-title">You may also like</h2>
                                 <div class="instagram-wrapper clearfix">
-                                    <a href="#"><img src="upload/garden_sq_01.jpg" alt="" class="img-fluid"></a>
-                                    <a href="#"><img src="upload/garden_sq_02.jpg" alt="" class="img-fluid"></a>
-                                    <a href="#"><img src="upload/garden_sq_03.jpg" alt="" class="img-fluid"></a>
-                                    <a href="#"><img src="upload/garden_sq_04.jpg" alt="" class="img-fluid"></a>
-                                    <a href="#"><img src="upload/garden_sq_05.jpg" alt="" class="img-fluid"></a>
-                                    <a href="#"><img src="upload/garden_sq_06.jpg" alt="" class="img-fluid"></a>
-                                    <a href="#"><img src="upload/garden_sq_07.jpg" alt="" class="img-fluid"></a>
-                                    <a href="#"><img src="upload/garden_sq_08.jpg" alt="" class="img-fluid"></a>
-                                    <a href="#"><img src="upload/garden_sq_09.jpg" alt="" class="img-fluid"></a>
+                                    <?php foreach ($produits as $p)  { ?>
+                                        <a href="index.php?controller=produit&action=read&id=<?=$p['id']?>"><img src="<?php echo $p["image"] ; ?>" alt="" class="img-fluid"></a>
+                                    <?php } ?>
                                 </div><!-- end Instagram wrapper -->
                             </div><!-- end widget -->
 
@@ -172,11 +159,11 @@ session_start();
                                 <h2 class="widget-title">Popular Categories</h2>
                                 <div class="link-widget">
                                     <ul>
-                                        <li><a href="#">Gardening <span>(21)</span></a></li>
-                                        <li><a href="#">Outdoor Living <span>(15)</span></a></li>
-                                        <li><a href="#">Indoor Living <span>(31)</span></a></li>
-                                        <li><a href="#">Shopping Guides <span>(22)</span></a></li>
-                                        <li><a href="#">Pool Design <span>(66)</span></a></li>
+                                        <?php foreach ($categories as $c) { ?>
+                                        <li><a href="#"><?php echo $c["name_category"] ;  ?> 
+                                        <!-- <span>(21)</span> -->
+                                    </a></li>
+                                        <?php } ?>
                                     </ul>
                                 </div><!-- end link-widget -->
                             </div><!-- end widget -->

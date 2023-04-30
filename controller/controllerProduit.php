@@ -8,7 +8,9 @@ $controller = "produit";
 require_once ("{$ROOT}{$DS}model{$DS}ModelProduit.php"); 
 require_once ("{$ROOT}{$DS}model{$DS}ModelCategory.php");
 require_once ("{$ROOT}{$DS}model{$DS}ModelUtilisateur.php"); 
-require_once ("{$ROOT}{$DS}model{$DS}ModelReview.php"); 
+require_once ("{$ROOT}{$DS}model{$DS}ModelReview.php");
+require_once ("{$ROOT}{$DS}model{$DS}ModelEvent.php"); 
+
 
 
 
@@ -39,6 +41,13 @@ switch ($action) {
 				if($u!=null){
 					$user = ModelUtilisateur::select($u["id_user"]);
 					$pagetitle = "Product Details";
+
+       				$products = ModelProduit::getAll();//appel au modèle pour gerer la BD
+       				$events = ModelEvent::getAll();//appel au modèle pour gerer la BD
+       				$categories = ModelCategory::getAll();//appel au modèle pour gerer la BD
+
+					
+
 					$reviews = ModelReview::getAll();
 					$review_all = array();
 					foreach ($reviews as $review) {
