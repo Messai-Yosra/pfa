@@ -7,6 +7,8 @@ $controller = "utilisateur";
 // chargement du modèle
 require_once ("{$ROOT}{$DS}model{$DS}ModelUtilisateur.php"); 
 require_once ("{$ROOT}{$DS}model{$DS}ModelProduit.php"); 
+require_once ("{$ROOT}{$DS}model{$DS}ModelEvent.php"); 
+
 
 
 
@@ -31,6 +33,8 @@ switch ($action) {
 	case "home":
         $pagetitle = "Home";
        	$produits = ModelProduit::getAll();//appel au modèle pour gerer la BD
+       	$events = ModelEvent::getAll();//appel au modèle pour gerer la BD
+
 		require ("{$ROOT}{$DS}view{$DS}home.php");//"redirige" vers la vue
 
 		// localhost/pfaFinal/view/home.php

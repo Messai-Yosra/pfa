@@ -18,7 +18,7 @@
 </style>
 
 <center class="table-responsive">
-    <a href="<?php echo 'index.php?controller=category&action=create'; ?>" class="buttonTable" style="left : 60% !important; margin-top : 40px ;
+    <a href="<?php echo 'index.php?controller=event&action=create'; ?>" class="buttonTable" style="left : 60% !important; margin-top : 40px ;
     margin-bottom : 30px; margin-left : 50%;
     background-color: #6488FF; ">
         Add Event
@@ -46,7 +46,7 @@
 
         <td>
             <a href="<?php echo 'index.php?controller=category&action=update&id='.$id; ?>" class="buttonTable" style="background-color : green ;">Edit</a>
-            <a href="<?php echo 'index.php?controller=category&action=delete&id='.$id; ?>" class="buttonTable" style="background-color : red ;">Delete</a>
+            <a href="<?php echo 'index.php?controller=event&action=delete&id='.$id; ?>" class="buttonTable" style="background-color : red ;">Delete</a>
 
         </td> 
         </tr>

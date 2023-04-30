@@ -42,17 +42,17 @@ switch ($action) {
 	case "delete":
 		if(isset($_REQUEST['id'])){
 			$id = $_REQUEST['id'];
-			$del = ModelCategory::select($id);
+			$del = ModelEvent::select($id);
 			
 			if($del!=null){
-				ModelCategory::delete($id);
-				header('Location: index.php?controller=category&action=readAll');
+				ModelEvent::delete($id);
+				header('Location: index.php?controller=event&action=readAll');
 			}
 		}
 	    break;
 	
 	case "create":
-		$pagetitle = "Add Category";
+		$pagetitle = "Add Event";
 		$view = "create";
 		require ("{$ROOT}{$DS}view{$DS}view.php");
 		break;

@@ -128,29 +128,18 @@ session_start();
                                 <h2 class="widget-title">Recent Posts</h2>
                                 <div class="blog-list-widget">
                                     <div class="list-group">
+
+                                    <?php foreach ($events as $event) { ?>
                                         <a href="garden-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
                                             <div class="w-100 justify-content-between">
-                                                <img src="upload/garden_sq_09.jpg" alt="" class="img-fluid float-left">
-                                                <h5 class="mb-1">5 Beautiful buildings you need to before dying</h5>
-                                                <small>12 Jan, 2016</small>
+                                                <img src="<?php echo $event['image'] ;  ?>" alt="" class="img-fluid float-left">
+                                                <h5 class="mb-1"><?php echo $event["title"] ; ?></h5>
+                                                <small><?php echo $event["start_date"] ;  ?></small>
                                             </div>
                                         </a>
 
-                                        <a href="garden-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                                            <div class="w-100 justify-content-between">
-                                                <img src="upload/garden_sq_06.jpg" alt="" class="img-fluid float-left">
-                                                <h5 class="mb-1">Let's make an introduction for creative life</h5>
-                                                <small>11 Jan, 2016</small>
-                                            </div>
-                                        </a>
+                                    <?php } ?>
 
-                                        <a href="garden-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                                            <div class="w-100 last-item justify-content-between">
-                                                <img src="upload/garden_sq_02.jpg" alt="" class="img-fluid float-left">
-                                                <h5 class="mb-1">Did you see the most beautiful sea in the world?</h5>
-                                                <small>07 Jan, 2016</small>
-                                            </div>
-                                        </a>
                                     </div>
                                 </div><!-- end blog-list -->
                             </div><!-- end widget -->
