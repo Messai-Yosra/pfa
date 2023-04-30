@@ -3,13 +3,9 @@
 à jour les données à travers le modèle, puis appelle la vue
 adéquate. */
 
-$controller = "review";
+$controller = "event";
 // chargement du modèle
-require_once ("{$ROOT}{$DS}model{$DS}ModelReview.php"); 
-require_once ("{$ROOT}{$DS}model{$DS}ModelProduit.php"); 
-require_once ("{$ROOT}{$DS}model{$DS}ModelUtilisateur.php"); 
-
-
+require_once ("{$ROOT}{$DS}model{$DS}ModelEvent.php"); 
 
 
 
@@ -25,9 +21,9 @@ switch ($action) {
 
 	
     case "readAll":
-        $pagetitle = "Categories List";
+        $pagetitle = "Events List";
         $view = "readAll";
-       	$tab_u = ModelCategory::getAll();//appel au modèle pour gerer la BD
+       	$tab_u = ModelEvent::getAll();//appel au modèle pour gerer la BD
         require ("{$ROOT}{$DS}view{$DS}view.php");//"redirige" vers la vue
         break;
 
@@ -63,50 +59,26 @@ switch ($action) {
 		
 	case "created": // Action du formulaire de la création 
 		if(
-			isset($_REQUEST["description"]) && isset($_REQUEST["name_user"]) && isset($_REQUEST["id_produit"]) 
+			isset($_REQUEST["name_category"]) 
 		){ 
 			 
-			$description = $_REQUEST["description"];  
-            $name_user = $_REQUEST["name_user"];
-            $id_produit = $_REQUEST["id_produit"]; 
-            $createdAt = date("Y-m-d");
+			$name_category = $_REQUEST["name_category"];  
+
  
 			 //Si l'utilisateur n'existe pas donc on l'ajoute
 									//il faut créer une object ModelUtilisateur pour accéder à insert car elle n'est pas static
-				$u = new ModelReview(
-					$description,
-                    $name_user,
-                    $id_produit,
-                    $createdAt
+				$u = new ModelCategory(
+					$name_category
 				);	
 				$tab = array(
 				"id" => null,
-				"description" => $description,
-                "name_user" => $name_user,
-                "id_produit" => $id_produit,
-                "createdAt" => $createdAt
+				"name_category" => $name_category,				
 				);		
 				echo $u->insert($tab);
-				$pagetitle = "Review Created";
-				$done = "Review created.";
-				$view = "create";
-
-                // ===== go to produit ===== 
-                $u = ModelProduit::select($id_produit);
-                    if($u!=null){
-                        $user = ModelUtilisateur::select($u["id_user"]);
-						$reviews = ModelReview::getAll();
-						$review_all = array();
-						foreach ($reviews as $review) {
-							if ($review["id_produit"] == $u["id"]) {
-								$review_all[] = $review;
-							}
-						}
-                        $controller = "produit" ;  
-                        $pagetitle = "Product Details";
-                        $view = "read";
-                        require ("{$ROOT}{$DS}view{$DS}view.php");
-                    } 
+				$pagetitle = "Category created";
+				$done = "Category created.";
+				$view = "create"; 
+				require ("{$ROOT}{$DS}view{$DS}view.php");
 			
 		}
 		break;
