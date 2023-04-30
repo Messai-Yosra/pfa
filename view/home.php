@@ -125,7 +125,7 @@ session_start();
                             </div><!-- end widget -->
 
                             <div class="widget">
-                                <h2 class="widget-title">Recent Posts</h2>
+                                <h2 class="widget-title">Recent Events</h2>
                                 <div class="blog-list-widget">
                                     <div class="list-group">
 
