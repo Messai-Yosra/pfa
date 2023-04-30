@@ -99,11 +99,7 @@ switch ($action) {
                         $pagetitle = "Product Details";
                         $view = "read";
                         require ("{$ROOT}{$DS}view{$DS}view.php");
-                    }
-                
-
-
-				//require ("{$ROOT}{$DS}view{$DS}view.php");
+                    } 
 			
 		}
 		break;
