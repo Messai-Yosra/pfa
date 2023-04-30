@@ -24,6 +24,7 @@ class ModelEvent extends Model{
   // ====== constructeur =======
     public function __construct(
         $title=NULL,
+        $image=NULL,
         $description=NULL,
         $start_date=NULL,
         $name_user=NULL,

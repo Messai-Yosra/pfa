@@ -9,7 +9,7 @@
 <html>
 <head>
 	
-	<title>Create Category</title>
+	<title>Login</title>
 	
 	<?php include "imports.php"; ?>
 	
@@ -82,11 +82,11 @@
 	 
 	
 	<center> 
-		<h2 style="margin-top: 26px">Create Event</h2> 
+		<h2 style="margin-top: 26px">Update Category</h2> 
 
 	
 
-	<form style="width:50%; margin-bottom:90px" action="index.php?controller=event&action=created" method="post"> 
+	<form style="width:50%; margin-bottom:90px" action="index.php?controller=category&action=updated&id=<?=$up['id']?>" method="post"> 
 	 
 	<?php if (isset($error)) { ?>
 		<div class="alert alert-danger" role="alert" style="margin-top : 10px ; font-size : 18px">
@@ -102,23 +102,12 @@
 
 	
 	  <div class="container">
+	    <input type="hidden" value="<?php echo $up["id"];  ?>" name="id" required>
 
-	    <label for="uname"><b>Title</b></label>
-	    <input type="text" name="title" required>
-        
-        <label for="uname"><b>Image</b></label>
-	    <input type="text" name="image" required>
-	     
-        <label for="uname"><b>Description</b></label>
-	    <input type="text" name="description" required>
-
-
-        <label for="uname"><b>Start Date</b></label>
-	    <input type="datetime-local" name="start_date" required>
-
-        <input type="hidden" name="name_user" value="<?php echo $_SESSION['user']["username"]; ?>">
-        
-	    <button type="submit" name="login">Create</button> 
+	    <label for="uname"><b>Name</b></label>
+	    <input type="text" value="<?php echo $up["name_category"];  ?>" name="name_category" required> 
+	        
+	    <button type="submit" name="login">Update</button> 
 	    
 
 	  </div>
@@ -126,7 +115,8 @@
 	  
 	</form>
 	</center>
-	 
+	
+	<?php //include "../footer.php"; ?>
 
 </body>
 </html>

@@ -57,26 +57,41 @@ switch ($action) {
 		require ("{$ROOT}{$DS}view{$DS}view.php");
 		break;
 		
-	case "created": // Action du formulaire de la création 
+	case "created": // Action du formulaire de la création  
 		if(
-			isset($_REQUEST["name_category"]) 
+			isset($_REQUEST["title"]) && isset($_REQUEST["image"]) && isset($_REQUEST["description"]) && isset($_REQUEST["start_date"]) && isset($_REQUEST["name_user"]) 
 		){ 
 			 
-			$name_category = $_REQUEST["name_category"];  
+			$title = $_REQUEST["title"];
+            $image = $_REQUEST["image"];
+            $description = $_REQUEST["description"];
+            $start_date = $_REQUEST["start_date"];
+            $name_user = $_REQUEST["name_user"];
+
 
  
 			 //Si l'utilisateur n'existe pas donc on l'ajoute
 									//il faut créer une object ModelUtilisateur pour accéder à insert car elle n'est pas static
-				$u = new ModelCategory(
-					$name_category
+				$u = new ModelEvent(
+					$title,
+                    $image,
+                    $description,
+                    $start_date,
+                    $name_user,
+                    date("Y-m-d H:i:s")
 				);	
 				$tab = array(
 				"id" => null,
-				"name_category" => $name_category,				
+				"title" => $title,	
+                "image" => $image,
+                "description" => $description,
+                "start_date" => $start_date,
+                "name_user" => $name_user,
+                "createdAt" => date("Y-m-d H:i:s")
 				);		
 				echo $u->insert($tab);
-				$pagetitle = "Category created";
-				$done = "Category created.";
+				$pagetitle = "Event created";
+				$done = "Event created.";
 				$view = "create"; 
 				require ("{$ROOT}{$DS}view{$DS}view.php");
 			
@@ -86,10 +101,10 @@ switch ($action) {
 	case "update":
 		if(isset($_REQUEST['id'])){
 			$id = $_REQUEST['id'];
-			$up = ModelCategory::select($id);
+			$up = ModelEvent::select($id);
 			//il faut vérifier que l'utilisateur existe dans la bdd 
 			if($up!=null){
-				$pagetitle = "Edit Category";
+				$pagetitle = "Edit Event";
 				$view = "update";
 				require ("{$ROOT}{$DS}view{$DS}view.php");			
 			}
