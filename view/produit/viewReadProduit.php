@@ -77,7 +77,7 @@
                             <hr class="invis1">
 
                             <div class="custombox clearfix">
-                                <h4 class="small-title">3 Comments</h4>
+                                <h4 class="small-title"><?php echo count($review_all) ; ?> Comments</h4>
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="comments-list">

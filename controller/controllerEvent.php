@@ -3,13 +3,9 @@
 à jour les données à travers le modèle, puis appelle la vue
 adéquate. */
 
-$controller = "review";
+$controller = "event";
 // chargement du modèle
-require_once ("{$ROOT}{$DS}model{$DS}ModelReview.php"); 
-require_once ("{$ROOT}{$DS}model{$DS}ModelProduit.php"); 
-require_once ("{$ROOT}{$DS}model{$DS}ModelUtilisateur.php"); 
-
-
+require_once ("{$ROOT}{$DS}model{$DS}ModelEvent.php"); 
 
 
 
@@ -25,9 +21,9 @@ switch ($action) {
 
 	
     case "readAll":
-        $pagetitle = "Categories List";
+        $pagetitle = "Events List";
         $view = "readAll";
-       	$tab_u = ModelCategory::getAll();//appel au modèle pour gerer la BD
+       	$tab_u = ModelEvent::getAll();//appel au modèle pour gerer la BD
         require ("{$ROOT}{$DS}view{$DS}view.php");//"redirige" vers la vue
         break;
 
@@ -46,67 +42,58 @@ switch ($action) {
 	case "delete":
 		if(isset($_REQUEST['id'])){
 			$id = $_REQUEST['id'];
-			$del = ModelCategory::select($id);
+			$del = ModelEvent::select($id);
 			
 			if($del!=null){
-				ModelCategory::delete($id);
-				header('Location: index.php?controller=category&action=readAll');
+				ModelEvent::delete($id);
+				header('Location: index.php?controller=event&action=readAll');
 			}
 		}
 	    break;
 	
 	case "create":
-		$pagetitle = "Add Category";
+		$pagetitle = "Add Event";
 		$view = "create";
 		require ("{$ROOT}{$DS}view{$DS}view.php");
 		break;
 		
-	case "created": // Action du formulaire de la création 
+	case "created": // Action du formulaire de la création  
 		if(
-			isset($_REQUEST["description"]) && isset($_REQUEST["name_user"]) && isset($_REQUEST["id_produit"]) 
+			isset($_REQUEST["title"]) && isset($_REQUEST["image"]) && isset($_REQUEST["description"]) && isset($_REQUEST["start_date"]) && isset($_REQUEST["name_user"]) 
 		){ 
 			 
-			$description = $_REQUEST["description"];  
+			$title = $_REQUEST["title"];
+            $image = $_REQUEST["image"];
+            $description = $_REQUEST["description"];
+            $start_date = $_REQUEST["start_date"];
             $name_user = $_REQUEST["name_user"];
-            $id_produit = $_REQUEST["id_produit"]; 
-            $createdAt = date("Y-m-d");
+
+
  
 			 //Si l'utilisateur n'existe pas donc on l'ajoute
 									//il faut créer une object ModelUtilisateur pour accéder à insert car elle n'est pas static
-				$u = new ModelReview(
-					$description,
+				$u = new ModelEvent(
+					$title,
+                    $image,
+                    $description,
+                    $start_date,
                     $name_user,
-                    $id_produit,
-                    $createdAt
+                    date("Y-m-d H:i:s")
 				);	
 				$tab = array(
 				"id" => null,
-				"description" => $description,
+				"title" => $title,	
+                "image" => $image,
+                "description" => $description,
+                "start_date" => $start_date,
                 "name_user" => $name_user,
-                "id_produit" => $id_produit,
-                "createdAt" => $createdAt
+                "createdAt" => date("Y-m-d H:i:s")
 				);		
 				echo $u->insert($tab);
-				$pagetitle = "Review Created";
-				$done = "Review created.";
-				$view = "create";
-
-                // ===== go to produit ===== 
-                $u = ModelProduit::select($id_produit);
-                    if($u!=null){
-                        $user = ModelUtilisateur::select($u["id_user"]);
-						$reviews = ModelReview::getAll();
-						$review_all = array();
-						foreach ($reviews as $review) {
-							if ($review["id_produit"] == $u["id"]) {
-								$review_all[] = $review;
-							}
-						}
-                        $controller = "produit" ;  
-                        $pagetitle = "Product Details";
-                        $view = "read";
-                        require ("{$ROOT}{$DS}view{$DS}view.php");
-                    } 
+				$pagetitle = "Event created";
+				$done = "Event created.";
+				$view = "create"; 
+				require ("{$ROOT}{$DS}view{$DS}view.php");
 			
 		}
 		break;
@@ -114,10 +101,10 @@ switch ($action) {
 	case "update":
 		if(isset($_REQUEST['id'])){
 			$id = $_REQUEST['id'];
-			$up = ModelCategory::select($id);
+			$up = ModelEvent::select($id);
 			//il faut vérifier que l'utilisateur existe dans la bdd 
 			if($up!=null){
-				$pagetitle = "Edit Category";
+				$pagetitle = "Edit Event";
 				$view = "update";
 				require ("{$ROOT}{$DS}view{$DS}view.php");			
 			}

@@ -81,25 +81,13 @@
                             <li class="nav-item">
                                 <a class="nav-link color-green-hover" href="index.php?controller=utilisateur">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link color-green-hover" href="#">events</a>
-                            </li>
+                            
                        
-                       <?php 
-                        if (!isset($_SESSION['user'])) { ?>
-                            <li class="nav-item">
-                                <a class="nav-link color-green-hover" href="index.php?controller=utilisateur&action=login">login</a>
-                            </li>
-
-                        <?php } else { ?>
-                                    <li class="nav-item">
-                                <a class="nav-link color-green-hover" href="index.php?controller=utilisateur&action=logout">Logout</a>
-                                    </li> <?php } ?>
 
 
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link color-green-hover" href="index.php?controller=utilisateur&action=contact">Contact</a>
-                            </li>
+                            </li> -->
 
                         <?php 
                         if (isset($_SESSION['user'])) { 
@@ -117,6 +105,27 @@
                                 <a class="nav-link color-green-hover" href="index.php?controller=produit&action=readAll">Products</a>
                             </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link color-green-hover" href="index.php?controller=event&action=readAll">Events</a>
+                            </li>
+
+
+
+
+
+
+
+
+                            <?php 
+                        if (!isset($_SESSION['user'])) { ?>
+                            <li class="nav-item">
+                                <a class="nav-link color-green-hover" href="index.php?controller=utilisateur&action=login">login</a>
+                            </li>
+
+                        <?php } else { ?>
+                                    <li class="nav-item">
+                                <a class="nav-link color-green-hover" href="index.php?controller=utilisateur&action=logout">Logout</a>
+                                    </li> <?php } ?>
 
                         </ul>
 
