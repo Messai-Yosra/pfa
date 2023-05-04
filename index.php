@@ -28,6 +28,10 @@ switch ($controller) {
 				require ("{$ROOT}{$DS}controller{$DS}controllerCategory.php");
 				break;
 
+			case "commande" : 
+				require ("{$ROOT}{$DS}controller{$DS}controllerCommande.php");
+				break;
+
 			case "event" : 
 				require ("{$ROOT}{$DS}controller{$DS}controllerEvent.php");
 				break;

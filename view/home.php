@@ -130,7 +130,7 @@ session_start();
                                     <div class="list-group">
 
                                     <?php foreach ($events as $event) { ?>
-                                        <a href="garden-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <a href="index.php?controller=event&action=read&id=<?=$event['id']?>" class="list-group-item list-group-item-action flex-column align-items-start">
                                             <div class="w-100 justify-content-between">
                                                 <img src="<?php echo $event['image'] ;  ?>" alt="" class="img-fluid float-left">
                                                 <h5 class="mb-1"><?php echo $event["title"] ; ?></h5>

@@ -5,6 +5,10 @@ adéquate. */
 
 $controller = "event";
 // chargement du modèle
+require_once ("{$ROOT}{$DS}model{$DS}ModelProduit.php"); 
+require_once ("{$ROOT}{$DS}model{$DS}ModelCategory.php");
+require_once ("{$ROOT}{$DS}model{$DS}ModelUtilisateur.php"); 
+require_once ("{$ROOT}{$DS}model{$DS}ModelReview.php");
 require_once ("{$ROOT}{$DS}model{$DS}ModelEvent.php"); 
 
 
@@ -29,10 +33,17 @@ switch ($action) {
 
 	case "read":	
 		if(isset($_REQUEST['id'])){
-			$ncin = $_REQUEST['id'];
-			$u = ModelUtilisateur::select($id);
+			$id = $_REQUEST['id'];
+			$u = ModelEvent::select($id);
 				if($u!=null){
-					$pagetitle = "Details de l'utilisateur";
+					//$user = ModelUtilisateur::select($u["id_user"]);
+					$pagetitle = "Event Details";
+
+       				$products = ModelProduit::getAll();//appel au modèle pour gerer la BD
+       				$events = ModelEvent::getAll();//appel au modèle pour gerer la BD
+       				$categories = ModelCategory::getAll();//appel au modèle pour gerer la BD
+
+					 
 					$view = "read";
 					require ("{$ROOT}{$DS}view{$DS}view.php");
 				}
