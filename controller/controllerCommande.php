@@ -3,16 +3,10 @@
 à jour les données à travers le modèle, puis appelle la vue
 adéquate. */
 
-$controller = "review";
+$controller = "commande";
 // chargement du modèle
-require_once ("{$ROOT}{$DS}model{$DS}ModelReview.php"); 
+require_once ("{$ROOT}{$DS}model{$DS}ModelCommande.php"); 
 require_once ("{$ROOT}{$DS}model{$DS}ModelProduit.php"); 
-require_once ("{$ROOT}{$DS}model{$DS}ModelUtilisateur.php");
-require_once ("{$ROOT}{$DS}model{$DS}ModelCategory.php"); 
-require_once ("{$ROOT}{$DS}model{$DS}ModelEvent.php"); 
-
-
-
 
 
 
@@ -66,55 +60,32 @@ switch ($action) {
 		
 	case "created": // Action du formulaire de la création 
 		if(
-			isset($_REQUEST["description"]) && isset($_REQUEST["name_user"]) && isset($_REQUEST["id_produit"]) 
+			isset($_REQUEST["id_produit"]) 
 		){ 
 			 
-			$description = $_REQUEST["description"];  
-            $name_user = $_REQUEST["name_user"];
-            $id_produit = $_REQUEST["id_produit"]; 
-            $createdAt = date("Y-m-d");
- 
+			$id_produit = $_REQUEST["id_produit"];  
+            $name_user= $_REQUEST["name_user"]; 
 			 //Si l'utilisateur n'existe pas donc on l'ajoute
 									//il faut créer une object ModelUtilisateur pour accéder à insert car elle n'est pas static
-				$u = new ModelReview(
-					$description,
-                    $name_user,
-                    $id_produit,
-                    $createdAt
+				$u = new ModelCommande(
+                   Date("Y-m-d H:i:s"),
+				   $name_user,
+                   $name_user
 				);	
 				$tab = array(
 				"id" => null,
-				"description" => $description,
-                "name_user" => $name_user,
-                "id_produit" => $id_produit,
-                "createdAt" => $createdAt
+				"createdAt" => date("Y-m-d H:i:s"),				
+
+				"name_user" => $name_user,	
+				"id_produit" => $id_produit,				
+
 				);		
 				echo $u->insert($tab);
-				$pagetitle = "Review Created";
-				$done = "Review created.";
-				$view = "create";
-
-                // ===== go to produit ===== 
-                $u = ModelProduit::select($id_produit);
-                    if($u!=null){
-                        $user = ModelUtilisateur::select($u["id_user"]);
-						$reviews = ModelReview::getAll();
-						$products = ModelProduit::getAll();
-						$events = ModelEvent::getAll();
-
-						$categories = ModelCategory::getAll();
-
-						$review_all = array();
-						foreach ($reviews as $review) {
-							if ($review["id_produit"] == $u["id"]) {
-								$review_all[] = $review;
-							}
-						}
-                        $controller = "produit" ;  
-                        $pagetitle = "Product Details";
-                        $view = "read";
-                        require ("{$ROOT}{$DS}view{$DS}view.php");
-                    } 
+				$pagetitle = "Order created";
+				$done = "Order created.";
+				$view = "created"; 
+                $product = ModelProduit::select($id_produit);
+				require ("{$ROOT}{$DS}view{$DS}view.php");
 			
 		}
 		break;

@@ -7,8 +7,7 @@ class Conf {
   //   'login' => 'root',
   //   'password' => ''
   // );
-   
-  static private $databases = array(
+     static private $databases = array(
     'hostname' => 'mysql-forest-time.alwaysdata.net',
     'database' => 'forest-time_pfa',
     'login' => '311983',
